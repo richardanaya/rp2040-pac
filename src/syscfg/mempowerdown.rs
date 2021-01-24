@@ -1,18 +1,52 @@
-#[doc = "Reader of register MEMPOWERDOWN"]
-pub type R = crate::R<u32, super::MEMPOWERDOWN>;
-#[doc = "Writer for register MEMPOWERDOWN"]
-pub type W = crate::W<u32, super::MEMPOWERDOWN>;
-#[doc = "Register MEMPOWERDOWN `reset()`'s with value 0"]
-impl crate::ResetValue for super::MEMPOWERDOWN {
-    type Type = u32;
+#[doc = "Register `MEMPOWERDOWN` reader"]
+pub struct R(crate::R<MEMPOWERDOWN_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MEMPOWERDOWN_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `ROM`"]
-pub type ROM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ROM`"]
+impl core::convert::From<crate::R<MEMPOWERDOWN_SPEC>> for R {
+    fn from(reader: crate::R<MEMPOWERDOWN_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MEMPOWERDOWN` writer"]
+pub struct W(crate::W<MEMPOWERDOWN_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MEMPOWERDOWN_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MEMPOWERDOWN_SPEC>> for W {
+    fn from(writer: crate::W<MEMPOWERDOWN_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `ROM` reader - "]
+pub struct ROM_R(crate::FieldReader<bool, bool>);
+impl ROM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ROM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ROM_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ROM` writer - "]
 pub struct ROM_W<'a> {
     w: &'a mut W,
 }
@@ -34,9 +68,21 @@ impl<'a> ROM_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `USB`"]
-pub type USB_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `USB`"]
+#[doc = "Field `USB` reader - "]
+pub struct USB_R(crate::FieldReader<bool, bool>);
+impl USB_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        USB_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for USB_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `USB` writer - "]
 pub struct USB_W<'a> {
     w: &'a mut W,
 }
@@ -58,9 +104,21 @@ impl<'a> USB_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SRAM5`"]
-pub type SRAM5_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SRAM5`"]
+#[doc = "Field `SRAM5` reader - "]
+pub struct SRAM5_R(crate::FieldReader<bool, bool>);
+impl SRAM5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SRAM5_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SRAM5_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SRAM5` writer - "]
 pub struct SRAM5_W<'a> {
     w: &'a mut W,
 }
@@ -82,9 +140,21 @@ impl<'a> SRAM5_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SRAM4`"]
-pub type SRAM4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SRAM4`"]
+#[doc = "Field `SRAM4` reader - "]
+pub struct SRAM4_R(crate::FieldReader<bool, bool>);
+impl SRAM4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SRAM4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SRAM4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SRAM4` writer - "]
 pub struct SRAM4_W<'a> {
     w: &'a mut W,
 }
@@ -106,9 +176,21 @@ impl<'a> SRAM4_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SRAM3`"]
-pub type SRAM3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SRAM3`"]
+#[doc = "Field `SRAM3` reader - "]
+pub struct SRAM3_R(crate::FieldReader<bool, bool>);
+impl SRAM3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SRAM3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SRAM3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SRAM3` writer - "]
 pub struct SRAM3_W<'a> {
     w: &'a mut W,
 }
@@ -130,9 +212,21 @@ impl<'a> SRAM3_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SRAM2`"]
-pub type SRAM2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SRAM2`"]
+#[doc = "Field `SRAM2` reader - "]
+pub struct SRAM2_R(crate::FieldReader<bool, bool>);
+impl SRAM2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SRAM2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SRAM2_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SRAM2` writer - "]
 pub struct SRAM2_W<'a> {
     w: &'a mut W,
 }
@@ -154,9 +248,21 @@ impl<'a> SRAM2_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SRAM1`"]
-pub type SRAM1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SRAM1`"]
+#[doc = "Field `SRAM1` reader - "]
+pub struct SRAM1_R(crate::FieldReader<bool, bool>);
+impl SRAM1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SRAM1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SRAM1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SRAM1` writer - "]
 pub struct SRAM1_W<'a> {
     w: &'a mut W,
 }
@@ -178,9 +284,21 @@ impl<'a> SRAM1_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SRAM0`"]
-pub type SRAM0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SRAM0`"]
+#[doc = "Field `SRAM0` reader - "]
+pub struct SRAM0_R(crate::FieldReader<bool, bool>);
+impl SRAM0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SRAM0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SRAM0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SRAM0` writer - "]
 pub struct SRAM0_W<'a> {
     w: &'a mut W,
 }
@@ -284,5 +402,30 @@ impl W {
     #[inline(always)]
     pub fn sram0(&mut self) -> SRAM0_W {
         SRAM0_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Control power downs to memories. Set high to power down memories.\\n Use with extreme caution\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mempowerdown](index.html) module"]
+pub struct MEMPOWERDOWN_SPEC;
+impl crate::RegisterSpec for MEMPOWERDOWN_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mempowerdown::R](R) reader structure"]
+impl crate::Readable for MEMPOWERDOWN_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mempowerdown::W](W) writer structure"]
+impl crate::Writable for MEMPOWERDOWN_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MEMPOWERDOWN to value 0"]
+impl crate::Resettable for MEMPOWERDOWN_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

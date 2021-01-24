@@ -1,18 +1,52 @@
-#[doc = "Reader of register ADDR_ENDP"]
-pub type R = crate::R<u32, super::ADDR_ENDP>;
-#[doc = "Writer for register ADDR_ENDP"]
-pub type W = crate::W<u32, super::ADDR_ENDP>;
-#[doc = "Register ADDR_ENDP `reset()`'s with value 0"]
-impl crate::ResetValue for super::ADDR_ENDP {
-    type Type = u32;
+#[doc = "Register `ADDR_ENDP` reader"]
+pub struct R(crate::R<ADDR_ENDP_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<ADDR_ENDP_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `ENDPOINT`"]
-pub type ENDPOINT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `ENDPOINT`"]
+impl core::convert::From<crate::R<ADDR_ENDP_SPEC>> for R {
+    fn from(reader: crate::R<ADDR_ENDP_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `ADDR_ENDP` writer"]
+pub struct W(crate::W<ADDR_ENDP_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<ADDR_ENDP_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<ADDR_ENDP_SPEC>> for W {
+    fn from(writer: crate::W<ADDR_ENDP_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `ENDPOINT` reader - Device endpoint to send data to. Only valid for HOST mode."]
+pub struct ENDPOINT_R(crate::FieldReader<u8, u8>);
+impl ENDPOINT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ENDPOINT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENDPOINT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENDPOINT` writer - Device endpoint to send data to. Only valid for HOST mode."]
 pub struct ENDPOINT_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> ENDPOINT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `ADDRESS`"]
-pub type ADDRESS_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `ADDRESS`"]
+#[doc = "Field `ADDRESS` reader - In device mode, the address that the device should respond to. Set in response to a SET_ADDR setup packet from the host. In host mode set to the address of the device to communicate with."]
+pub struct ADDRESS_R(crate::FieldReader<u8, u8>);
+impl ADDRESS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADDRESS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ADDRESS_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADDRESS` writer - In device mode, the address that the device should respond to. Set in response to a SET_ADDR setup packet from the host. In host mode set to the address of the device to communicate with."]
 pub struct ADDRESS_W<'a> {
     w: &'a mut W,
 }
@@ -60,5 +106,30 @@ impl W {
     #[inline(always)]
     pub fn address(&mut self) -> ADDRESS_W {
         ADDRESS_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Device address and endpoint control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [addr_endp](index.html) module"]
+pub struct ADDR_ENDP_SPEC;
+impl crate::RegisterSpec for ADDR_ENDP_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [addr_endp::R](R) reader structure"]
+impl crate::Readable for ADDR_ENDP_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [addr_endp::W](W) writer structure"]
+impl crate::Writable for ADDR_ENDP_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets ADDR_ENDP to value 0"]
+impl crate::Resettable for ADDR_ENDP_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

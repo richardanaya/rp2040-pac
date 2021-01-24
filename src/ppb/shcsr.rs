@@ -1,18 +1,52 @@
-#[doc = "Reader of register SHCSR"]
-pub type R = crate::R<u32, super::SHCSR>;
-#[doc = "Writer for register SHCSR"]
-pub type W = crate::W<u32, super::SHCSR>;
-#[doc = "Register SHCSR `reset()`'s with value 0"]
-impl crate::ResetValue for super::SHCSR {
-    type Type = u32;
+#[doc = "Register `SHCSR` reader"]
+pub struct R(crate::R<SHCSR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SHCSR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `SVCALLPENDED`"]
-pub type SVCALLPENDED_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SVCALLPENDED`"]
+impl core::convert::From<crate::R<SHCSR_SPEC>> for R {
+    fn from(reader: crate::R<SHCSR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SHCSR` writer"]
+pub struct W(crate::W<SHCSR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SHCSR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<SHCSR_SPEC>> for W {
+    fn from(writer: crate::W<SHCSR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `SVCALLPENDED` reader - Reads as 1 if SVCall is Pending. Write 1 to set pending SVCall, write 0 to clear pending SVCall."]
+pub struct SVCALLPENDED_R(crate::FieldReader<bool, bool>);
+impl SVCALLPENDED_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SVCALLPENDED_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SVCALLPENDED_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SVCALLPENDED` writer - Reads as 1 if SVCall is Pending. Write 1 to set pending SVCall, write 0 to clear pending SVCall."]
 pub struct SVCALLPENDED_W<'a> {
     w: &'a mut W,
 }
@@ -46,5 +80,30 @@ impl W {
     #[inline(always)]
     pub fn svcallpended(&mut self) -> SVCALLPENDED_W {
         SVCALLPENDED_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Use the System Handler Control and State Register to determine or clear the pending status of SVCall.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [shcsr](index.html) module"]
+pub struct SHCSR_SPEC;
+impl crate::RegisterSpec for SHCSR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [shcsr::R](R) reader structure"]
+impl crate::Readable for SHCSR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [shcsr::W](W) writer structure"]
+impl crate::Writable for SHCSR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SHCSR to value 0"]
+impl crate::Resettable for SHCSR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

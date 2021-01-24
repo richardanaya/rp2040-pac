@@ -1,13 +1,35 @@
-#[doc = "Reader of register IC_TAR"]
-pub type R = crate::R<u32, super::IC_TAR>;
-#[doc = "Writer for register IC_TAR"]
-pub type W = crate::W<u32, super::IC_TAR>;
-#[doc = "Register IC_TAR `reset()`'s with value 0x55"]
-impl crate::ResetValue for super::IC_TAR {
-    type Type = u32;
+#[doc = "Register `IC_TAR` reader"]
+pub struct R(crate::R<IC_TAR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<IC_TAR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x55
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<IC_TAR_SPEC>> for R {
+    fn from(reader: crate::R<IC_TAR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `IC_TAR` writer"]
+pub struct W(crate::W<IC_TAR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<IC_TAR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<IC_TAR_SPEC>> for W {
+    fn from(writer: crate::W<IC_TAR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "This bit indicates whether software performs a Device-ID or General Call or START BYTE command. - 0: ignore bit 10 GC_OR_START and use IC_TAR normally - 1: perform special I2C command as specified in Device_ID or GC_OR_START bit Reset value: 0x0\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<SPECIAL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SPECIAL`"]
-pub type SPECIAL_R = crate::R<bool, SPECIAL_A>;
+#[doc = "Field `SPECIAL` reader - This bit indicates whether software performs a Device-ID or General Call or START BYTE command. - 0: ignore bit 10 GC_OR_START and use IC_TAR normally - 1: perform special I2C command as specified in Device_ID or GC_OR_START bit Reset value: 0x0"]
+pub struct SPECIAL_R(crate::FieldReader<bool, SPECIAL_A>);
 impl SPECIAL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SPECIAL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SPECIAL_A {
@@ -38,15 +63,22 @@ impl SPECIAL_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SPECIAL_A::DISABLED
+        **self == SPECIAL_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SPECIAL_A::ENABLED
+        **self == SPECIAL_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `SPECIAL`"]
+impl core::ops::Deref for SPECIAL_R {
+    type Target = crate::FieldReader<bool, SPECIAL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SPECIAL` writer - This bit indicates whether software performs a Device-ID or General Call or START BYTE command. - 0: ignore bit 10 GC_OR_START and use IC_TAR normally - 1: perform special I2C command as specified in Device_ID or GC_OR_START bit Reset value: 0x0"]
 pub struct SPECIAL_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> SPECIAL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SPECIAL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disables programming of GENERAL_CALL or START_BYTE transmission"]
     #[inline(always)]
@@ -99,9 +129,12 @@ impl From<GC_OR_START_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `GC_OR_START`"]
-pub type GC_OR_START_R = crate::R<bool, GC_OR_START_A>;
+#[doc = "Field `GC_OR_START` reader - If bit 11 (SPECIAL) is set to 1 and bit 13(Device-ID) is set to 0, then this bit indicates whether a General Call or START byte command is to be performed by the DW_apb_i2c. - 0: General Call Address - after issuing a General Call, only writes may be performed. Attempting to issue a read command results in setting bit 6 (TX_ABRT) of the IC_RAW_INTR_STAT register. The DW_apb_i2c remains in General Call mode until the SPECIAL bit value (bit 11) is cleared. - 1: START BYTE Reset value: 0x0"]
+pub struct GC_OR_START_R(crate::FieldReader<bool, GC_OR_START_A>);
 impl GC_OR_START_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        GC_OR_START_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> GC_OR_START_A {
@@ -113,15 +146,22 @@ impl GC_OR_START_R {
     #[doc = "Checks if the value of the field is `GENERAL_CALL`"]
     #[inline(always)]
     pub fn is_general_call(&self) -> bool {
-        *self == GC_OR_START_A::GENERAL_CALL
+        **self == GC_OR_START_A::GENERAL_CALL
     }
     #[doc = "Checks if the value of the field is `START_BYTE`"]
     #[inline(always)]
     pub fn is_start_byte(&self) -> bool {
-        *self == GC_OR_START_A::START_BYTE
+        **self == GC_OR_START_A::START_BYTE
     }
 }
-#[doc = "Write proxy for field `GC_OR_START`"]
+impl core::ops::Deref for GC_OR_START_R {
+    type Target = crate::FieldReader<bool, GC_OR_START_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GC_OR_START` writer - If bit 11 (SPECIAL) is set to 1 and bit 13(Device-ID) is set to 0, then this bit indicates whether a General Call or START byte command is to be performed by the DW_apb_i2c. - 0: General Call Address - after issuing a General Call, only writes may be performed. Attempting to issue a read command results in setting bit 6 (TX_ABRT) of the IC_RAW_INTR_STAT register. The DW_apb_i2c remains in General Call mode until the SPECIAL bit value (bit 11) is cleared. - 1: START BYTE Reset value: 0x0"]
 pub struct GC_OR_START_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> GC_OR_START_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: GC_OR_START_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "GENERAL_CALL byte transmission"]
     #[inline(always)]
@@ -160,9 +198,21 @@ impl<'a> GC_OR_START_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `IC_TAR`"]
-pub type IC_TAR_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `IC_TAR`"]
+#[doc = "Field `IC_TAR` reader - This is the target address for any master transaction. When transmitting a General Call, these bits are ignored. To generate a START BYTE, the CPU needs to write only once into these bits.\\n\\n If the IC_TAR and IC_SAR are the same, loopback exists but the FIFOs are shared between master and slave, so full loopback is not feasible. Only one direction loopback mode is supported (simplex), not duplex. A master cannot transmit to itself; it can transmit to only a slave."]
+pub struct IC_TAR_R(crate::FieldReader<u16, u16>);
+impl IC_TAR_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        IC_TAR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for IC_TAR_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IC_TAR` writer - This is the target address for any master transaction. When transmitting a General Call, these bits are ignored. To generate a START BYTE, the CPU needs to write only once into these bits.\\n\\n If the IC_TAR and IC_SAR are the same, loopback exists but the FIFOs are shared between master and slave, so full loopback is not feasible. Only one direction loopback mode is supported (simplex), not duplex. A master cannot transmit to itself; it can transmit to only a slave."]
 pub struct IC_TAR_W<'a> {
     w: &'a mut W,
 }
@@ -206,5 +256,31 @@ impl W {
     #[inline(always)]
     pub fn ic_tar(&mut self) -> IC_TAR_W {
         IC_TAR_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "I2C Target Address Register\\n\\n This register is 12 bits wide, and bits 31:12 are reserved. This register can be written to only when IC_ENABLE\\[0\\]
+is set to 0.\\n\\n Note: If the software or application is aware that the DW_apb_i2c is not using the TAR address for the pending commands in the Tx FIFO, then it is possible to update the TAR address even while the Tx FIFO has entries (IC_STATUS\\[2\\]= 0). - It is not necessary to perform any write to this register if DW_apb_i2c is enabled as an I2C slave only.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ic_tar](index.html) module"]
+pub struct IC_TAR_SPEC;
+impl crate::RegisterSpec for IC_TAR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ic_tar::R](R) reader structure"]
+impl crate::Readable for IC_TAR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ic_tar::W](W) writer structure"]
+impl crate::Writable for IC_TAR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets IC_TAR to value 0x55"]
+impl crate::Resettable for IC_TAR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x55
     }
 }

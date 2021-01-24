@@ -1,5 +1,17 @@
-#[doc = "Reader of register IC_INTR_STAT"]
-pub type R = crate::R<u32, super::IC_INTR_STAT>;
+#[doc = "Register `IC_INTR_STAT` reader"]
+pub struct R(crate::R<IC_INTR_STAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<IC_INTR_STAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<IC_INTR_STAT_SPEC>> for R {
+    fn from(reader: crate::R<IC_INTR_STAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_MASTER_ON_HOLD bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum R_MASTER_ON_HOLD_A {
@@ -14,9 +26,12 @@ impl From<R_MASTER_ON_HOLD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_MASTER_ON_HOLD`"]
-pub type R_MASTER_ON_HOLD_R = crate::R<bool, R_MASTER_ON_HOLD_A>;
+#[doc = "Field `R_MASTER_ON_HOLD` reader - See IC_RAW_INTR_STAT for a detailed description of R_MASTER_ON_HOLD bit.\\n\\n Reset value: 0x0"]
+pub struct R_MASTER_ON_HOLD_R(crate::FieldReader<bool, R_MASTER_ON_HOLD_A>);
 impl R_MASTER_ON_HOLD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_MASTER_ON_HOLD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_MASTER_ON_HOLD_A {
@@ -28,12 +43,19 @@ impl R_MASTER_ON_HOLD_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_MASTER_ON_HOLD_A::INACTIVE
+        **self == R_MASTER_ON_HOLD_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_MASTER_ON_HOLD_A::ACTIVE
+        **self == R_MASTER_ON_HOLD_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_MASTER_ON_HOLD_R {
+    type Target = crate::FieldReader<bool, R_MASTER_ON_HOLD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_RESTART_DET bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -50,9 +72,12 @@ impl From<R_RESTART_DET_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_RESTART_DET`"]
-pub type R_RESTART_DET_R = crate::R<bool, R_RESTART_DET_A>;
+#[doc = "Field `R_RESTART_DET` reader - See IC_RAW_INTR_STAT for a detailed description of R_RESTART_DET bit.\\n\\n Reset value: 0x0"]
+pub struct R_RESTART_DET_R(crate::FieldReader<bool, R_RESTART_DET_A>);
 impl R_RESTART_DET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_RESTART_DET_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_RESTART_DET_A {
@@ -64,12 +89,19 @@ impl R_RESTART_DET_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_RESTART_DET_A::INACTIVE
+        **self == R_RESTART_DET_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_RESTART_DET_A::ACTIVE
+        **self == R_RESTART_DET_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_RESTART_DET_R {
+    type Target = crate::FieldReader<bool, R_RESTART_DET_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_GEN_CALL bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -86,9 +118,12 @@ impl From<R_GEN_CALL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_GEN_CALL`"]
-pub type R_GEN_CALL_R = crate::R<bool, R_GEN_CALL_A>;
+#[doc = "Field `R_GEN_CALL` reader - See IC_RAW_INTR_STAT for a detailed description of R_GEN_CALL bit.\\n\\n Reset value: 0x0"]
+pub struct R_GEN_CALL_R(crate::FieldReader<bool, R_GEN_CALL_A>);
 impl R_GEN_CALL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_GEN_CALL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_GEN_CALL_A {
@@ -100,12 +135,19 @@ impl R_GEN_CALL_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_GEN_CALL_A::INACTIVE
+        **self == R_GEN_CALL_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_GEN_CALL_A::ACTIVE
+        **self == R_GEN_CALL_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_GEN_CALL_R {
+    type Target = crate::FieldReader<bool, R_GEN_CALL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_START_DET bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -122,9 +164,12 @@ impl From<R_START_DET_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_START_DET`"]
-pub type R_START_DET_R = crate::R<bool, R_START_DET_A>;
+#[doc = "Field `R_START_DET` reader - See IC_RAW_INTR_STAT for a detailed description of R_START_DET bit.\\n\\n Reset value: 0x0"]
+pub struct R_START_DET_R(crate::FieldReader<bool, R_START_DET_A>);
 impl R_START_DET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_START_DET_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_START_DET_A {
@@ -136,12 +181,19 @@ impl R_START_DET_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_START_DET_A::INACTIVE
+        **self == R_START_DET_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_START_DET_A::ACTIVE
+        **self == R_START_DET_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_START_DET_R {
+    type Target = crate::FieldReader<bool, R_START_DET_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_STOP_DET bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -158,9 +210,12 @@ impl From<R_STOP_DET_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_STOP_DET`"]
-pub type R_STOP_DET_R = crate::R<bool, R_STOP_DET_A>;
+#[doc = "Field `R_STOP_DET` reader - See IC_RAW_INTR_STAT for a detailed description of R_STOP_DET bit.\\n\\n Reset value: 0x0"]
+pub struct R_STOP_DET_R(crate::FieldReader<bool, R_STOP_DET_A>);
 impl R_STOP_DET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_STOP_DET_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_STOP_DET_A {
@@ -172,12 +227,19 @@ impl R_STOP_DET_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_STOP_DET_A::INACTIVE
+        **self == R_STOP_DET_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_STOP_DET_A::ACTIVE
+        **self == R_STOP_DET_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_STOP_DET_R {
+    type Target = crate::FieldReader<bool, R_STOP_DET_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_ACTIVITY bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -194,9 +256,12 @@ impl From<R_ACTIVITY_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_ACTIVITY`"]
-pub type R_ACTIVITY_R = crate::R<bool, R_ACTIVITY_A>;
+#[doc = "Field `R_ACTIVITY` reader - See IC_RAW_INTR_STAT for a detailed description of R_ACTIVITY bit.\\n\\n Reset value: 0x0"]
+pub struct R_ACTIVITY_R(crate::FieldReader<bool, R_ACTIVITY_A>);
 impl R_ACTIVITY_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_ACTIVITY_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_ACTIVITY_A {
@@ -208,12 +273,19 @@ impl R_ACTIVITY_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_ACTIVITY_A::INACTIVE
+        **self == R_ACTIVITY_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_ACTIVITY_A::ACTIVE
+        **self == R_ACTIVITY_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_ACTIVITY_R {
+    type Target = crate::FieldReader<bool, R_ACTIVITY_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_RX_DONE bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -230,9 +302,12 @@ impl From<R_RX_DONE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_RX_DONE`"]
-pub type R_RX_DONE_R = crate::R<bool, R_RX_DONE_A>;
+#[doc = "Field `R_RX_DONE` reader - See IC_RAW_INTR_STAT for a detailed description of R_RX_DONE bit.\\n\\n Reset value: 0x0"]
+pub struct R_RX_DONE_R(crate::FieldReader<bool, R_RX_DONE_A>);
 impl R_RX_DONE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_RX_DONE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_RX_DONE_A {
@@ -244,12 +319,19 @@ impl R_RX_DONE_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_RX_DONE_A::INACTIVE
+        **self == R_RX_DONE_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_RX_DONE_A::ACTIVE
+        **self == R_RX_DONE_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_RX_DONE_R {
+    type Target = crate::FieldReader<bool, R_RX_DONE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_TX_ABRT bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -266,9 +348,12 @@ impl From<R_TX_ABRT_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_TX_ABRT`"]
-pub type R_TX_ABRT_R = crate::R<bool, R_TX_ABRT_A>;
+#[doc = "Field `R_TX_ABRT` reader - See IC_RAW_INTR_STAT for a detailed description of R_TX_ABRT bit.\\n\\n Reset value: 0x0"]
+pub struct R_TX_ABRT_R(crate::FieldReader<bool, R_TX_ABRT_A>);
 impl R_TX_ABRT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_TX_ABRT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_TX_ABRT_A {
@@ -280,12 +365,19 @@ impl R_TX_ABRT_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_TX_ABRT_A::INACTIVE
+        **self == R_TX_ABRT_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_TX_ABRT_A::ACTIVE
+        **self == R_TX_ABRT_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_TX_ABRT_R {
+    type Target = crate::FieldReader<bool, R_TX_ABRT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_RD_REQ bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -302,9 +394,12 @@ impl From<R_RD_REQ_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_RD_REQ`"]
-pub type R_RD_REQ_R = crate::R<bool, R_RD_REQ_A>;
+#[doc = "Field `R_RD_REQ` reader - See IC_RAW_INTR_STAT for a detailed description of R_RD_REQ bit.\\n\\n Reset value: 0x0"]
+pub struct R_RD_REQ_R(crate::FieldReader<bool, R_RD_REQ_A>);
 impl R_RD_REQ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_RD_REQ_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_RD_REQ_A {
@@ -316,12 +411,19 @@ impl R_RD_REQ_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_RD_REQ_A::INACTIVE
+        **self == R_RD_REQ_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_RD_REQ_A::ACTIVE
+        **self == R_RD_REQ_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_RD_REQ_R {
+    type Target = crate::FieldReader<bool, R_RD_REQ_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_TX_EMPTY bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -338,9 +440,12 @@ impl From<R_TX_EMPTY_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_TX_EMPTY`"]
-pub type R_TX_EMPTY_R = crate::R<bool, R_TX_EMPTY_A>;
+#[doc = "Field `R_TX_EMPTY` reader - See IC_RAW_INTR_STAT for a detailed description of R_TX_EMPTY bit.\\n\\n Reset value: 0x0"]
+pub struct R_TX_EMPTY_R(crate::FieldReader<bool, R_TX_EMPTY_A>);
 impl R_TX_EMPTY_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_TX_EMPTY_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_TX_EMPTY_A {
@@ -352,12 +457,19 @@ impl R_TX_EMPTY_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_TX_EMPTY_A::INACTIVE
+        **self == R_TX_EMPTY_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_TX_EMPTY_A::ACTIVE
+        **self == R_TX_EMPTY_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_TX_EMPTY_R {
+    type Target = crate::FieldReader<bool, R_TX_EMPTY_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_TX_OVER bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -374,9 +486,12 @@ impl From<R_TX_OVER_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_TX_OVER`"]
-pub type R_TX_OVER_R = crate::R<bool, R_TX_OVER_A>;
+#[doc = "Field `R_TX_OVER` reader - See IC_RAW_INTR_STAT for a detailed description of R_TX_OVER bit.\\n\\n Reset value: 0x0"]
+pub struct R_TX_OVER_R(crate::FieldReader<bool, R_TX_OVER_A>);
 impl R_TX_OVER_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_TX_OVER_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_TX_OVER_A {
@@ -388,12 +503,19 @@ impl R_TX_OVER_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_TX_OVER_A::INACTIVE
+        **self == R_TX_OVER_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_TX_OVER_A::ACTIVE
+        **self == R_TX_OVER_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_TX_OVER_R {
+    type Target = crate::FieldReader<bool, R_TX_OVER_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_RX_FULL bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -410,9 +532,12 @@ impl From<R_RX_FULL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_RX_FULL`"]
-pub type R_RX_FULL_R = crate::R<bool, R_RX_FULL_A>;
+#[doc = "Field `R_RX_FULL` reader - See IC_RAW_INTR_STAT for a detailed description of R_RX_FULL bit.\\n\\n Reset value: 0x0"]
+pub struct R_RX_FULL_R(crate::FieldReader<bool, R_RX_FULL_A>);
 impl R_RX_FULL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_RX_FULL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_RX_FULL_A {
@@ -424,12 +549,19 @@ impl R_RX_FULL_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_RX_FULL_A::INACTIVE
+        **self == R_RX_FULL_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_RX_FULL_A::ACTIVE
+        **self == R_RX_FULL_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_RX_FULL_R {
+    type Target = crate::FieldReader<bool, R_RX_FULL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_RX_OVER bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -446,9 +578,12 @@ impl From<R_RX_OVER_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_RX_OVER`"]
-pub type R_RX_OVER_R = crate::R<bool, R_RX_OVER_A>;
+#[doc = "Field `R_RX_OVER` reader - See IC_RAW_INTR_STAT for a detailed description of R_RX_OVER bit.\\n\\n Reset value: 0x0"]
+pub struct R_RX_OVER_R(crate::FieldReader<bool, R_RX_OVER_A>);
 impl R_RX_OVER_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_RX_OVER_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_RX_OVER_A {
@@ -460,12 +595,19 @@ impl R_RX_OVER_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_RX_OVER_A::INACTIVE
+        **self == R_RX_OVER_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_RX_OVER_A::ACTIVE
+        **self == R_RX_OVER_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_RX_OVER_R {
+    type Target = crate::FieldReader<bool, R_RX_OVER_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "See IC_RAW_INTR_STAT for a detailed description of R_RX_UNDER bit.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -482,9 +624,12 @@ impl From<R_RX_UNDER_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `R_RX_UNDER`"]
-pub type R_RX_UNDER_R = crate::R<bool, R_RX_UNDER_A>;
+#[doc = "Field `R_RX_UNDER` reader - See IC_RAW_INTR_STAT for a detailed description of R_RX_UNDER bit.\\n\\n Reset value: 0x0"]
+pub struct R_RX_UNDER_R(crate::FieldReader<bool, R_RX_UNDER_A>);
 impl R_RX_UNDER_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        R_RX_UNDER_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> R_RX_UNDER_A {
@@ -496,12 +641,19 @@ impl R_RX_UNDER_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == R_RX_UNDER_A::INACTIVE
+        **self == R_RX_UNDER_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == R_RX_UNDER_A::ACTIVE
+        **self == R_RX_UNDER_A::ACTIVE
+    }
+}
+impl core::ops::Deref for R_RX_UNDER_R {
+    type Target = crate::FieldReader<bool, R_RX_UNDER_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -574,5 +726,21 @@ impl R {
     #[inline(always)]
     pub fn r_rx_under(&self) -> R_RX_UNDER_R {
         R_RX_UNDER_R::new((self.bits & 0x01) != 0)
+    }
+}
+#[doc = "I2C Interrupt Status Register\\n\\n Each bit in this register has a corresponding mask bit in the IC_INTR_MASK register. These bits are cleared by reading the matching interrupt clear register. The unmasked raw versions of these bits are available in the IC_RAW_INTR_STAT register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ic_intr_stat](index.html) module"]
+pub struct IC_INTR_STAT_SPEC;
+impl crate::RegisterSpec for IC_INTR_STAT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ic_intr_stat::R](R) reader structure"]
+impl crate::Readable for IC_INTR_STAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets IC_INTR_STAT to value 0"]
+impl crate::Resettable for IC_INTR_STAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

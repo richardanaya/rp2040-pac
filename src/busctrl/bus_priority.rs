@@ -1,18 +1,52 @@
-#[doc = "Reader of register BUS_PRIORITY"]
-pub type R = crate::R<u32, super::BUS_PRIORITY>;
-#[doc = "Writer for register BUS_PRIORITY"]
-pub type W = crate::W<u32, super::BUS_PRIORITY>;
-#[doc = "Register BUS_PRIORITY `reset()`'s with value 0"]
-impl crate::ResetValue for super::BUS_PRIORITY {
-    type Type = u32;
+#[doc = "Register `BUS_PRIORITY` reader"]
+pub struct R(crate::R<BUS_PRIORITY_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<BUS_PRIORITY_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `DMA_W`"]
-pub type DMA_W_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DMA_W`"]
+impl core::convert::From<crate::R<BUS_PRIORITY_SPEC>> for R {
+    fn from(reader: crate::R<BUS_PRIORITY_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `BUS_PRIORITY` writer"]
+pub struct W(crate::W<BUS_PRIORITY_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<BUS_PRIORITY_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<BUS_PRIORITY_SPEC>> for W {
+    fn from(writer: crate::W<BUS_PRIORITY_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `DMA_W` reader - 0 - low priority, 1 - high priority"]
+pub struct DMA_W_R(crate::FieldReader<bool, bool>);
+impl DMA_W_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMA_W_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DMA_W_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMA_W` writer - 0 - low priority, 1 - high priority"]
 pub struct DMA_W_W<'a> {
     w: &'a mut W,
 }
@@ -34,9 +68,21 @@ impl<'a> DMA_W_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DMA_R`"]
-pub type DMA_R_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DMA_R`"]
+#[doc = "Field `DMA_R` reader - 0 - low priority, 1 - high priority"]
+pub struct DMA_R_R(crate::FieldReader<bool, bool>);
+impl DMA_R_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMA_R_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DMA_R_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMA_R` writer - 0 - low priority, 1 - high priority"]
 pub struct DMA_R_W<'a> {
     w: &'a mut W,
 }
@@ -58,9 +104,21 @@ impl<'a> DMA_R_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PROC1`"]
-pub type PROC1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROC1`"]
+#[doc = "Field `PROC1` reader - 0 - low priority, 1 - high priority"]
+pub struct PROC1_R(crate::FieldReader<bool, bool>);
+impl PROC1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC1` writer - 0 - low priority, 1 - high priority"]
 pub struct PROC1_W<'a> {
     w: &'a mut W,
 }
@@ -82,9 +140,21 @@ impl<'a> PROC1_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PROC0`"]
-pub type PROC0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROC0`"]
+#[doc = "Field `PROC0` reader - 0 - low priority, 1 - high priority"]
+pub struct PROC0_R(crate::FieldReader<bool, bool>);
+impl PROC0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC0` writer - 0 - low priority, 1 - high priority"]
 pub struct PROC0_W<'a> {
     w: &'a mut W,
 }
@@ -148,5 +218,30 @@ impl W {
     #[inline(always)]
     pub fn proc0(&mut self) -> PROC0_W {
         PROC0_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Set the priority of each master for bus arbitration.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bus_priority](index.html) module"]
+pub struct BUS_PRIORITY_SPEC;
+impl crate::RegisterSpec for BUS_PRIORITY_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [bus_priority::R](R) reader structure"]
+impl crate::Readable for BUS_PRIORITY_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [bus_priority::W](W) writer structure"]
+impl crate::Writable for BUS_PRIORITY_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets BUS_PRIORITY to value 0"]
+impl crate::Resettable for BUS_PRIORITY_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

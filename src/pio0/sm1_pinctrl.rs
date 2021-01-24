@@ -1,18 +1,52 @@
-#[doc = "Reader of register SM1_PINCTRL"]
-pub type R = crate::R<u32, super::SM1_PINCTRL>;
-#[doc = "Writer for register SM1_PINCTRL"]
-pub type W = crate::W<u32, super::SM1_PINCTRL>;
-#[doc = "Register SM1_PINCTRL `reset()`'s with value 0x1400_0000"]
-impl crate::ResetValue for super::SM1_PINCTRL {
-    type Type = u32;
+#[doc = "Register `SM1_PINCTRL` reader"]
+pub struct R(crate::R<SM1_PINCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SM1_PINCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x1400_0000
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `SIDESET_COUNT`"]
-pub type SIDESET_COUNT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `SIDESET_COUNT`"]
+impl core::convert::From<crate::R<SM1_PINCTRL_SPEC>> for R {
+    fn from(reader: crate::R<SM1_PINCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SM1_PINCTRL` writer"]
+pub struct W(crate::W<SM1_PINCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SM1_PINCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<SM1_PINCTRL_SPEC>> for W {
+    fn from(writer: crate::W<SM1_PINCTRL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `SIDESET_COUNT` reader - The number of delay bits co-opted for side-set. Inclusive of the enable bit, if present."]
+pub struct SIDESET_COUNT_R(crate::FieldReader<u8, u8>);
+impl SIDESET_COUNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SIDESET_COUNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SIDESET_COUNT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SIDESET_COUNT` writer - The number of delay bits co-opted for side-set. Inclusive of the enable bit, if present."]
 pub struct SIDESET_COUNT_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> SIDESET_COUNT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SET_COUNT`"]
-pub type SET_COUNT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `SET_COUNT`"]
+#[doc = "Field `SET_COUNT` reader - The number of pins asserted by a SET. Max of 5"]
+pub struct SET_COUNT_R(crate::FieldReader<u8, u8>);
+impl SET_COUNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SET_COUNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SET_COUNT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SET_COUNT` writer - The number of pins asserted by a SET. Max of 5"]
 pub struct SET_COUNT_W<'a> {
     w: &'a mut W,
 }
@@ -38,9 +84,21 @@ impl<'a> SET_COUNT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `OUT_COUNT`"]
-pub type OUT_COUNT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `OUT_COUNT`"]
+#[doc = "Field `OUT_COUNT` reader - The number of pins asserted by an OUT. Value of 0 -> 32 pins"]
+pub struct OUT_COUNT_R(crate::FieldReader<u8, u8>);
+impl OUT_COUNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        OUT_COUNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for OUT_COUNT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OUT_COUNT` writer - The number of pins asserted by an OUT. Value of 0 -> 32 pins"]
 pub struct OUT_COUNT_W<'a> {
     w: &'a mut W,
 }
@@ -52,9 +110,21 @@ impl<'a> OUT_COUNT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `IN_BASE`"]
-pub type IN_BASE_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `IN_BASE`"]
+#[doc = "Field `IN_BASE` reader - The virtual pin corresponding to IN bit 0"]
+pub struct IN_BASE_R(crate::FieldReader<u8, u8>);
+impl IN_BASE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        IN_BASE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for IN_BASE_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IN_BASE` writer - The virtual pin corresponding to IN bit 0"]
 pub struct IN_BASE_W<'a> {
     w: &'a mut W,
 }
@@ -66,9 +136,21 @@ impl<'a> IN_BASE_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SIDESET_BASE`"]
-pub type SIDESET_BASE_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `SIDESET_BASE`"]
+#[doc = "Field `SIDESET_BASE` reader - The virtual pin corresponding to delay field bit 0"]
+pub struct SIDESET_BASE_R(crate::FieldReader<u8, u8>);
+impl SIDESET_BASE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SIDESET_BASE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SIDESET_BASE_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SIDESET_BASE` writer - The virtual pin corresponding to delay field bit 0"]
 pub struct SIDESET_BASE_W<'a> {
     w: &'a mut W,
 }
@@ -80,9 +162,21 @@ impl<'a> SIDESET_BASE_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SET_BASE`"]
-pub type SET_BASE_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `SET_BASE`"]
+#[doc = "Field `SET_BASE` reader - The virtual pin corresponding to SET bit 0"]
+pub struct SET_BASE_R(crate::FieldReader<u8, u8>);
+impl SET_BASE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SET_BASE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SET_BASE_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SET_BASE` writer - The virtual pin corresponding to SET bit 0"]
 pub struct SET_BASE_W<'a> {
     w: &'a mut W,
 }
@@ -94,9 +188,21 @@ impl<'a> SET_BASE_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `OUT_BASE`"]
-pub type OUT_BASE_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `OUT_BASE`"]
+#[doc = "Field `OUT_BASE` reader - The virtual pin corresponding to OUT bit 0"]
+pub struct OUT_BASE_R(crate::FieldReader<u8, u8>);
+impl OUT_BASE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        OUT_BASE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for OUT_BASE_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OUT_BASE` writer - The virtual pin corresponding to OUT bit 0"]
 pub struct OUT_BASE_W<'a> {
     w: &'a mut W,
 }
@@ -180,5 +286,30 @@ impl W {
     #[inline(always)]
     pub fn out_base(&mut self) -> OUT_BASE_W {
         OUT_BASE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "State machine pin control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sm1_pinctrl](index.html) module"]
+pub struct SM1_PINCTRL_SPEC;
+impl crate::RegisterSpec for SM1_PINCTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [sm1_pinctrl::R](R) reader structure"]
+impl crate::Readable for SM1_PINCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [sm1_pinctrl::W](W) writer structure"]
+impl crate::Writable for SM1_PINCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SM1_PINCTRL to value 0x1400_0000"]
+impl crate::Resettable for SM1_PINCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x1400_0000
     }
 }

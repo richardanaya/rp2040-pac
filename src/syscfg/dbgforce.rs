@@ -1,18 +1,52 @@
-#[doc = "Reader of register DBGFORCE"]
-pub type R = crate::R<u32, super::DBGFORCE>;
-#[doc = "Writer for register DBGFORCE"]
-pub type W = crate::W<u32, super::DBGFORCE>;
-#[doc = "Register DBGFORCE `reset()`'s with value 0x66"]
-impl crate::ResetValue for super::DBGFORCE {
-    type Type = u32;
+#[doc = "Register `DBGFORCE` reader"]
+pub struct R(crate::R<DBGFORCE_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DBGFORCE_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x66
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PROC1_ATTACH`"]
-pub type PROC1_ATTACH_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROC1_ATTACH`"]
+impl core::convert::From<crate::R<DBGFORCE_SPEC>> for R {
+    fn from(reader: crate::R<DBGFORCE_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DBGFORCE` writer"]
+pub struct W(crate::W<DBGFORCE_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DBGFORCE_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DBGFORCE_SPEC>> for W {
+    fn from(writer: crate::W<DBGFORCE_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PROC1_ATTACH` reader - Attach processor 1 debug port to syscfg controls, and disconnect it from external SWD pads."]
+pub struct PROC1_ATTACH_R(crate::FieldReader<bool, bool>);
+impl PROC1_ATTACH_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC1_ATTACH_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC1_ATTACH_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC1_ATTACH` writer - Attach processor 1 debug port to syscfg controls, and disconnect it from external SWD pads."]
 pub struct PROC1_ATTACH_W<'a> {
     w: &'a mut W,
 }
@@ -34,9 +68,21 @@ impl<'a> PROC1_ATTACH_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PROC1_SWCLK`"]
-pub type PROC1_SWCLK_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROC1_SWCLK`"]
+#[doc = "Field `PROC1_SWCLK` reader - Directly drive processor 1 SWCLK, if PROC1_ATTACH is set"]
+pub struct PROC1_SWCLK_R(crate::FieldReader<bool, bool>);
+impl PROC1_SWCLK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC1_SWCLK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC1_SWCLK_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC1_SWCLK` writer - Directly drive processor 1 SWCLK, if PROC1_ATTACH is set"]
 pub struct PROC1_SWCLK_W<'a> {
     w: &'a mut W,
 }
@@ -58,9 +104,21 @@ impl<'a> PROC1_SWCLK_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PROC1_SWDI`"]
-pub type PROC1_SWDI_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROC1_SWDI`"]
+#[doc = "Field `PROC1_SWDI` reader - Directly drive processor 1 SWDIO input, if PROC1_ATTACH is set"]
+pub struct PROC1_SWDI_R(crate::FieldReader<bool, bool>);
+impl PROC1_SWDI_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC1_SWDI_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC1_SWDI_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC1_SWDI` writer - Directly drive processor 1 SWDIO input, if PROC1_ATTACH is set"]
 pub struct PROC1_SWDI_W<'a> {
     w: &'a mut W,
 }
@@ -82,11 +140,35 @@ impl<'a> PROC1_SWDI_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PROC1_SWDO`"]
-pub type PROC1_SWDO_R = crate::R<bool, bool>;
-#[doc = "Reader of field `PROC0_ATTACH`"]
-pub type PROC0_ATTACH_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROC0_ATTACH`"]
+#[doc = "Field `PROC1_SWDO` reader - Observe the value of processor 1 SWDIO output."]
+pub struct PROC1_SWDO_R(crate::FieldReader<bool, bool>);
+impl PROC1_SWDO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC1_SWDO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC1_SWDO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC0_ATTACH` reader - Attach processor 0 debug port to syscfg controls, and disconnect it from external SWD pads."]
+pub struct PROC0_ATTACH_R(crate::FieldReader<bool, bool>);
+impl PROC0_ATTACH_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC0_ATTACH_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC0_ATTACH_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC0_ATTACH` writer - Attach processor 0 debug port to syscfg controls, and disconnect it from external SWD pads."]
 pub struct PROC0_ATTACH_W<'a> {
     w: &'a mut W,
 }
@@ -108,9 +190,21 @@ impl<'a> PROC0_ATTACH_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PROC0_SWCLK`"]
-pub type PROC0_SWCLK_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROC0_SWCLK`"]
+#[doc = "Field `PROC0_SWCLK` reader - Directly drive processor 0 SWCLK, if PROC0_ATTACH is set"]
+pub struct PROC0_SWCLK_R(crate::FieldReader<bool, bool>);
+impl PROC0_SWCLK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC0_SWCLK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC0_SWCLK_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC0_SWCLK` writer - Directly drive processor 0 SWCLK, if PROC0_ATTACH is set"]
 pub struct PROC0_SWCLK_W<'a> {
     w: &'a mut W,
 }
@@ -132,9 +226,21 @@ impl<'a> PROC0_SWCLK_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PROC0_SWDI`"]
-pub type PROC0_SWDI_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROC0_SWDI`"]
+#[doc = "Field `PROC0_SWDI` reader - Directly drive processor 0 SWDIO input, if PROC0_ATTACH is set"]
+pub struct PROC0_SWDI_R(crate::FieldReader<bool, bool>);
+impl PROC0_SWDI_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC0_SWDI_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC0_SWDI_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROC0_SWDI` writer - Directly drive processor 0 SWDIO input, if PROC0_ATTACH is set"]
 pub struct PROC0_SWDI_W<'a> {
     w: &'a mut W,
 }
@@ -156,8 +262,20 @@ impl<'a> PROC0_SWDI_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PROC0_SWDO`"]
-pub type PROC0_SWDO_R = crate::R<bool, bool>;
+#[doc = "Field `PROC0_SWDO` reader - Observe the value of processor 0 SWDIO output."]
+pub struct PROC0_SWDO_R(crate::FieldReader<bool, bool>);
+impl PROC0_SWDO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROC0_SWDO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROC0_SWDO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bit 7 - Attach processor 1 debug port to syscfg controls, and disconnect it from external SWD pads."]
     #[inline(always)]
@@ -230,5 +348,30 @@ impl W {
     #[inline(always)]
     pub fn proc0_swdi(&mut self) -> PROC0_SWDI_W {
         PROC0_SWDI_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Directly control the SWD debug port of either processor\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dbgforce](index.html) module"]
+pub struct DBGFORCE_SPEC;
+impl crate::RegisterSpec for DBGFORCE_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dbgforce::R](R) reader structure"]
+impl crate::Readable for DBGFORCE_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [dbgforce::W](W) writer structure"]
+impl crate::Writable for DBGFORCE_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DBGFORCE to value 0x66"]
+impl crate::Resettable for DBGFORCE_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x66
     }
 }

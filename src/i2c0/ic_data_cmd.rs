@@ -1,13 +1,35 @@
-#[doc = "Reader of register IC_DATA_CMD"]
-pub type R = crate::R<u32, super::IC_DATA_CMD>;
-#[doc = "Writer for register IC_DATA_CMD"]
-pub type W = crate::W<u32, super::IC_DATA_CMD>;
-#[doc = "Register IC_DATA_CMD `reset()`'s with value 0"]
-impl crate::ResetValue for super::IC_DATA_CMD {
-    type Type = u32;
+#[doc = "Register `IC_DATA_CMD` reader"]
+pub struct R(crate::R<IC_DATA_CMD_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<IC_DATA_CMD_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<IC_DATA_CMD_SPEC>> for R {
+    fn from(reader: crate::R<IC_DATA_CMD_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `IC_DATA_CMD` writer"]
+pub struct W(crate::W<IC_DATA_CMD_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<IC_DATA_CMD_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<IC_DATA_CMD_SPEC>> for W {
+    fn from(writer: crate::W<IC_DATA_CMD_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Indicates the first data byte received after the address phase for receive transfer in Master receiver or Slave receiver mode.\\n\\n Reset value : 0x0\\n\\n NOTE: In case of APB_DATA_WIDTH=8,\\n\\n 1. The user has to perform two APB Reads to IC_DATA_CMD in order to get status on 11 bit.\\n\\n 2. In order to read the 11 bit, the user has to perform the first data byte read \\[7:0\\]
@@ -27,9 +49,15 @@ impl From<FIRST_DATA_BYTE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FIRST_DATA_BYTE`"]
-pub type FIRST_DATA_BYTE_R = crate::R<bool, FIRST_DATA_BYTE_A>;
+#[doc = "Field `FIRST_DATA_BYTE` reader - Indicates the first data byte received after the address phase for receive transfer in Master receiver or Slave receiver mode.\\n\\n Reset value : 0x0\\n\\n NOTE: In case of APB_DATA_WIDTH=8,\\n\\n 1. The user has to perform two APB Reads to IC_DATA_CMD in order to get status on 11 bit.\\n\\n 2. In order to read the 11 bit, the user has to perform the first data byte read \\[7:0\\]
+(offset 0x10) and then perform the second read \\[15:8\\]
+(offset 0x11) in order to know the status of 11 bit (whether the data received in previous read is a first data byte or not).\\n\\n 3. The 11th bit is an optional read field, user can ignore 2nd byte read \\[15:8\\]
+(offset 0x11) if not interested in FIRST_DATA_BYTE status."]
+pub struct FIRST_DATA_BYTE_R(crate::FieldReader<bool, FIRST_DATA_BYTE_A>);
 impl FIRST_DATA_BYTE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FIRST_DATA_BYTE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FIRST_DATA_BYTE_A {
@@ -41,12 +69,19 @@ impl FIRST_DATA_BYTE_R {
     #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline(always)]
     pub fn is_inactive(&self) -> bool {
-        *self == FIRST_DATA_BYTE_A::INACTIVE
+        **self == FIRST_DATA_BYTE_A::INACTIVE
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == FIRST_DATA_BYTE_A::ACTIVE
+        **self == FIRST_DATA_BYTE_A::ACTIVE
+    }
+}
+impl core::ops::Deref for FIRST_DATA_BYTE_R {
+    type Target = crate::FieldReader<bool, FIRST_DATA_BYTE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "This bit controls whether a RESTART is issued before the byte is sent or received.\\n\\n 1 - If IC_RESTART_EN is 1, a RESTART is issued before the data is sent/received (according to the value of CMD), regardless of whether or not the transfer direction is changing from the previous command; if IC_RESTART_EN is 0, a STOP followed by a START is issued instead.\\n\\n 0 - If IC_RESTART_EN is 1, a RESTART is issued only if the transfer direction is changing from the previous command; if IC_RESTART_EN is 0, a STOP followed by a START is issued instead.\\n\\n Reset value: 0x0\n\nValue on reset: 0"]
@@ -63,9 +98,12 @@ impl From<RESTART_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RESTART`"]
-pub type RESTART_R = crate::R<bool, RESTART_A>;
+#[doc = "Field `RESTART` reader - This bit controls whether a RESTART is issued before the byte is sent or received.\\n\\n 1 - If IC_RESTART_EN is 1, a RESTART is issued before the data is sent/received (according to the value of CMD), regardless of whether or not the transfer direction is changing from the previous command; if IC_RESTART_EN is 0, a STOP followed by a START is issued instead.\\n\\n 0 - If IC_RESTART_EN is 1, a RESTART is issued only if the transfer direction is changing from the previous command; if IC_RESTART_EN is 0, a STOP followed by a START is issued instead.\\n\\n Reset value: 0x0"]
+pub struct RESTART_R(crate::FieldReader<bool, RESTART_A>);
 impl RESTART_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RESTART_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RESTART_A {
@@ -77,15 +115,22 @@ impl RESTART_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == RESTART_A::DISABLE
+        **self == RESTART_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == RESTART_A::ENABLE
+        **self == RESTART_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `RESTART`"]
+impl core::ops::Deref for RESTART_R {
+    type Target = crate::FieldReader<bool, RESTART_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RESTART` writer - This bit controls whether a RESTART is issued before the byte is sent or received.\\n\\n 1 - If IC_RESTART_EN is 1, a RESTART is issued before the data is sent/received (according to the value of CMD), regardless of whether or not the transfer direction is changing from the previous command; if IC_RESTART_EN is 0, a STOP followed by a START is issued instead.\\n\\n 0 - If IC_RESTART_EN is 1, a RESTART is issued only if the transfer direction is changing from the previous command; if IC_RESTART_EN is 0, a STOP followed by a START is issued instead.\\n\\n Reset value: 0x0"]
 pub struct RESTART_W<'a> {
     w: &'a mut W,
 }
@@ -93,9 +138,7 @@ impl<'a> RESTART_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RESTART_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Don't Issue RESTART before this command"]
     #[inline(always)]
@@ -138,9 +181,12 @@ impl From<STOP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STOP`"]
-pub type STOP_R = crate::R<bool, STOP_A>;
+#[doc = "Field `STOP` reader - This bit controls whether a STOP is issued after the byte is sent or received.\\n\\n - 1 - STOP is issued after this byte, regardless of whether or not the Tx FIFO is empty. If the Tx FIFO is not empty, the master immediately tries to start a new transfer by issuing a START and arbitrating for the bus. - 0 - STOP is not issued after this byte, regardless of whether or not the Tx FIFO is empty. If the Tx FIFO is not empty, the master continues the current transfer by sending/receiving data bytes according to the value of the CMD bit. If the Tx FIFO is empty, the master holds the SCL line low and stalls the bus until a new command is available in the Tx FIFO. Reset value: 0x0"]
+pub struct STOP_R(crate::FieldReader<bool, STOP_A>);
 impl STOP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STOP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STOP_A {
@@ -152,15 +198,22 @@ impl STOP_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == STOP_A::DISABLE
+        **self == STOP_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == STOP_A::ENABLE
+        **self == STOP_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `STOP`"]
+impl core::ops::Deref for STOP_R {
+    type Target = crate::FieldReader<bool, STOP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STOP` writer - This bit controls whether a STOP is issued after the byte is sent or received.\\n\\n - 1 - STOP is issued after this byte, regardless of whether or not the Tx FIFO is empty. If the Tx FIFO is not empty, the master immediately tries to start a new transfer by issuing a START and arbitrating for the bus. - 0 - STOP is not issued after this byte, regardless of whether or not the Tx FIFO is empty. If the Tx FIFO is not empty, the master continues the current transfer by sending/receiving data bytes according to the value of the CMD bit. If the Tx FIFO is empty, the master holds the SCL line low and stalls the bus until a new command is available in the Tx FIFO. Reset value: 0x0"]
 pub struct STOP_W<'a> {
     w: &'a mut W,
 }
@@ -168,9 +221,7 @@ impl<'a> STOP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STOP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Don't Issue STOP after this command"]
     #[inline(always)]
@@ -213,9 +264,12 @@ impl From<CMD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CMD`"]
-pub type CMD_R = crate::R<bool, CMD_A>;
+#[doc = "Field `CMD` reader - This bit controls whether a read or a write is performed. This bit does not control the direction when the DW_apb_i2con acts as a slave. It controls only the direction when it acts as a master.\\n\\n When a command is entered in the TX FIFO, this bit distinguishes the write and read commands. In slave-receiver mode, this bit is a 'don't care' because writes to this register are not required. In slave-transmitter mode, a '0' indicates that the data in IC_DATA_CMD is to be transmitted.\\n\\n When programming this bit, you should remember the following: attempting to perform a read operation after a General Call command has been sent results in a TX_ABRT interrupt (bit 6 of the IC_RAW_INTR_STAT register), unless bit 11 (SPECIAL) in the IC_TAR register has been cleared. If a '1' is written to this bit after receiving a RD_REQ interrupt, then a TX_ABRT interrupt occurs.\\n\\n Reset value: 0x0"]
+pub struct CMD_R(crate::FieldReader<bool, CMD_A>);
 impl CMD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CMD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CMD_A {
@@ -227,15 +281,22 @@ impl CMD_R {
     #[doc = "Checks if the value of the field is `WRITE`"]
     #[inline(always)]
     pub fn is_write(&self) -> bool {
-        *self == CMD_A::WRITE
+        **self == CMD_A::WRITE
     }
     #[doc = "Checks if the value of the field is `READ`"]
     #[inline(always)]
     pub fn is_read(&self) -> bool {
-        *self == CMD_A::READ
+        **self == CMD_A::READ
     }
 }
-#[doc = "Write proxy for field `CMD`"]
+impl core::ops::Deref for CMD_R {
+    type Target = crate::FieldReader<bool, CMD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CMD` writer - This bit controls whether a read or a write is performed. This bit does not control the direction when the DW_apb_i2con acts as a slave. It controls only the direction when it acts as a master.\\n\\n When a command is entered in the TX FIFO, this bit distinguishes the write and read commands. In slave-receiver mode, this bit is a 'don't care' because writes to this register are not required. In slave-transmitter mode, a '0' indicates that the data in IC_DATA_CMD is to be transmitted.\\n\\n When programming this bit, you should remember the following: attempting to perform a read operation after a General Call command has been sent results in a TX_ABRT interrupt (bit 6 of the IC_RAW_INTR_STAT register), unless bit 11 (SPECIAL) in the IC_TAR register has been cleared. If a '1' is written to this bit after receiving a RD_REQ interrupt, then a TX_ABRT interrupt occurs.\\n\\n Reset value: 0x0"]
 pub struct CMD_W<'a> {
     w: &'a mut W,
 }
@@ -243,9 +304,7 @@ impl<'a> CMD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CMD_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Master Write Command"]
     #[inline(always)]
@@ -274,9 +333,21 @@ impl<'a> CMD_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DAT`"]
-pub type DAT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DAT`"]
+#[doc = "Field `DAT` reader - This register contains the data to be transmitted or received on the I2C bus. If you are writing to this register and want to perform a read, bits 7:0 (DAT) are ignored by the DW_apb_i2c. However, when you read this register, these bits return the value of data received on the DW_apb_i2c interface.\\n\\n Reset value: 0x0"]
+pub struct DAT_R(crate::FieldReader<u8, u8>);
+impl DAT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DAT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DAT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DAT` writer - This register contains the data to be transmitted or received on the I2C bus. If you are writing to this register and want to perform a read, bits 7:0 (DAT) are ignored by the DW_apb_i2c. However, when you read this register, these bits return the value of data received on the DW_apb_i2c interface.\\n\\n Reset value: 0x0"]
 pub struct DAT_W<'a> {
     w: &'a mut W,
 }
@@ -338,5 +409,30 @@ impl W {
     #[inline(always)]
     pub fn dat(&mut self) -> DAT_W {
         DAT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "I2C Rx/Tx Data Buffer and Command Register; this is the register the CPU writes to when filling the TX FIFO and the CPU reads from when retrieving bytes from RX FIFO.\\n\\n The size of the register changes as follows:\\n\\n Write: - 11 bits when IC_EMPTYFIFO_HOLD_MASTER_EN=1 - 9 bits when IC_EMPTYFIFO_HOLD_MASTER_EN=0 Read: - 12 bits when IC_FIRST_DATA_BYTE_STATUS = 1 - 8 bits when IC_FIRST_DATA_BYTE_STATUS = 0 Note: In order for the DW_apb_i2c to continue acknowledging reads, a read command should be written for every byte that is to be received; otherwise the DW_apb_i2c will stop acknowledging.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ic_data_cmd](index.html) module"]
+pub struct IC_DATA_CMD_SPEC;
+impl crate::RegisterSpec for IC_DATA_CMD_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ic_data_cmd::R](R) reader structure"]
+impl crate::Readable for IC_DATA_CMD_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ic_data_cmd::W](W) writer structure"]
+impl crate::Writable for IC_DATA_CMD_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets IC_DATA_CMD to value 0"]
+impl crate::Resettable for IC_DATA_CMD_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

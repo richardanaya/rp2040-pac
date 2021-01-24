@@ -1,18 +1,52 @@
-#[doc = "Reader of register USBPHY_DIRECT_OVERRIDE"]
-pub type R = crate::R<u32, super::USBPHY_DIRECT_OVERRIDE>;
-#[doc = "Writer for register USBPHY_DIRECT_OVERRIDE"]
-pub type W = crate::W<u32, super::USBPHY_DIRECT_OVERRIDE>;
-#[doc = "Register USBPHY_DIRECT_OVERRIDE `reset()`'s with value 0"]
-impl crate::ResetValue for super::USBPHY_DIRECT_OVERRIDE {
-    type Type = u32;
+#[doc = "Register `USBPHY_DIRECT_OVERRIDE` reader"]
+pub struct R(crate::R<USBPHY_DIRECT_OVERRIDE_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<USBPHY_DIRECT_OVERRIDE_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `TX_DIFFMODE_OVERRIDE_EN`"]
-pub type TX_DIFFMODE_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TX_DIFFMODE_OVERRIDE_EN`"]
+impl core::convert::From<crate::R<USBPHY_DIRECT_OVERRIDE_SPEC>> for R {
+    fn from(reader: crate::R<USBPHY_DIRECT_OVERRIDE_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `USBPHY_DIRECT_OVERRIDE` writer"]
+pub struct W(crate::W<USBPHY_DIRECT_OVERRIDE_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<USBPHY_DIRECT_OVERRIDE_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<USBPHY_DIRECT_OVERRIDE_SPEC>> for W {
+    fn from(writer: crate::W<USBPHY_DIRECT_OVERRIDE_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `TX_DIFFMODE_OVERRIDE_EN` reader - "]
+pub struct TX_DIFFMODE_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl TX_DIFFMODE_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TX_DIFFMODE_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_DIFFMODE_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TX_DIFFMODE_OVERRIDE_EN` writer - "]
 pub struct TX_DIFFMODE_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -34,9 +68,21 @@ impl<'a> TX_DIFFMODE_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DM_PULLUP_OVERRIDE_EN`"]
-pub type DM_PULLUP_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DM_PULLUP_OVERRIDE_EN`"]
+#[doc = "Field `DM_PULLUP_OVERRIDE_EN` reader - "]
+pub struct DM_PULLUP_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl DM_PULLUP_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DM_PULLUP_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DM_PULLUP_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DM_PULLUP_OVERRIDE_EN` writer - "]
 pub struct DM_PULLUP_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -58,9 +104,21 @@ impl<'a> DM_PULLUP_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `TX_FSSLEW_OVERRIDE_EN`"]
-pub type TX_FSSLEW_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TX_FSSLEW_OVERRIDE_EN`"]
+#[doc = "Field `TX_FSSLEW_OVERRIDE_EN` reader - "]
+pub struct TX_FSSLEW_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl TX_FSSLEW_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TX_FSSLEW_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_FSSLEW_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TX_FSSLEW_OVERRIDE_EN` writer - "]
 pub struct TX_FSSLEW_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -82,9 +140,21 @@ impl<'a> TX_FSSLEW_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `TX_PD_OVERRIDE_EN`"]
-pub type TX_PD_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TX_PD_OVERRIDE_EN`"]
+#[doc = "Field `TX_PD_OVERRIDE_EN` reader - "]
+pub struct TX_PD_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl TX_PD_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TX_PD_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_PD_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TX_PD_OVERRIDE_EN` writer - "]
 pub struct TX_PD_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -106,9 +176,21 @@ impl<'a> TX_PD_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `RX_PD_OVERRIDE_EN`"]
-pub type RX_PD_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `RX_PD_OVERRIDE_EN`"]
+#[doc = "Field `RX_PD_OVERRIDE_EN` reader - "]
+pub struct RX_PD_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl RX_PD_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RX_PD_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RX_PD_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RX_PD_OVERRIDE_EN` writer - "]
 pub struct RX_PD_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -130,9 +212,21 @@ impl<'a> RX_PD_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `TX_DM_OVERRIDE_EN`"]
-pub type TX_DM_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TX_DM_OVERRIDE_EN`"]
+#[doc = "Field `TX_DM_OVERRIDE_EN` reader - "]
+pub struct TX_DM_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl TX_DM_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TX_DM_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_DM_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TX_DM_OVERRIDE_EN` writer - "]
 pub struct TX_DM_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -154,9 +248,21 @@ impl<'a> TX_DM_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `TX_DP_OVERRIDE_EN`"]
-pub type TX_DP_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TX_DP_OVERRIDE_EN`"]
+#[doc = "Field `TX_DP_OVERRIDE_EN` reader - "]
+pub struct TX_DP_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl TX_DP_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TX_DP_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_DP_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TX_DP_OVERRIDE_EN` writer - "]
 pub struct TX_DP_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -178,9 +284,21 @@ impl<'a> TX_DP_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `TX_DM_OE_OVERRIDE_EN`"]
-pub type TX_DM_OE_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TX_DM_OE_OVERRIDE_EN`"]
+#[doc = "Field `TX_DM_OE_OVERRIDE_EN` reader - "]
+pub struct TX_DM_OE_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl TX_DM_OE_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TX_DM_OE_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_DM_OE_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TX_DM_OE_OVERRIDE_EN` writer - "]
 pub struct TX_DM_OE_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -202,9 +320,21 @@ impl<'a> TX_DM_OE_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `TX_DP_OE_OVERRIDE_EN`"]
-pub type TX_DP_OE_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TX_DP_OE_OVERRIDE_EN`"]
+#[doc = "Field `TX_DP_OE_OVERRIDE_EN` reader - "]
+pub struct TX_DP_OE_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl TX_DP_OE_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TX_DP_OE_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_DP_OE_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TX_DP_OE_OVERRIDE_EN` writer - "]
 pub struct TX_DP_OE_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -226,9 +356,21 @@ impl<'a> TX_DP_OE_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DM_PULLDN_EN_OVERRIDE_EN`"]
-pub type DM_PULLDN_EN_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DM_PULLDN_EN_OVERRIDE_EN`"]
+#[doc = "Field `DM_PULLDN_EN_OVERRIDE_EN` reader - "]
+pub struct DM_PULLDN_EN_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl DM_PULLDN_EN_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DM_PULLDN_EN_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DM_PULLDN_EN_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DM_PULLDN_EN_OVERRIDE_EN` writer - "]
 pub struct DM_PULLDN_EN_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -250,9 +392,21 @@ impl<'a> DM_PULLDN_EN_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DP_PULLDN_EN_OVERRIDE_EN`"]
-pub type DP_PULLDN_EN_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DP_PULLDN_EN_OVERRIDE_EN`"]
+#[doc = "Field `DP_PULLDN_EN_OVERRIDE_EN` reader - "]
+pub struct DP_PULLDN_EN_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl DP_PULLDN_EN_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DP_PULLDN_EN_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DP_PULLDN_EN_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DP_PULLDN_EN_OVERRIDE_EN` writer - "]
 pub struct DP_PULLDN_EN_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -274,9 +428,21 @@ impl<'a> DP_PULLDN_EN_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DP_PULLUP_EN_OVERRIDE_EN`"]
-pub type DP_PULLUP_EN_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DP_PULLUP_EN_OVERRIDE_EN`"]
+#[doc = "Field `DP_PULLUP_EN_OVERRIDE_EN` reader - "]
+pub struct DP_PULLUP_EN_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl DP_PULLUP_EN_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DP_PULLUP_EN_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DP_PULLUP_EN_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DP_PULLUP_EN_OVERRIDE_EN` writer - "]
 pub struct DP_PULLUP_EN_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -298,9 +464,21 @@ impl<'a> DP_PULLUP_EN_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DM_PULLUP_HISEL_OVERRIDE_EN`"]
-pub type DM_PULLUP_HISEL_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DM_PULLUP_HISEL_OVERRIDE_EN`"]
+#[doc = "Field `DM_PULLUP_HISEL_OVERRIDE_EN` reader - "]
+pub struct DM_PULLUP_HISEL_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl DM_PULLUP_HISEL_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DM_PULLUP_HISEL_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DM_PULLUP_HISEL_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DM_PULLUP_HISEL_OVERRIDE_EN` writer - "]
 pub struct DM_PULLUP_HISEL_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -322,9 +500,21 @@ impl<'a> DM_PULLUP_HISEL_OVERRIDE_EN_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DP_PULLUP_HISEL_OVERRIDE_EN`"]
-pub type DP_PULLUP_HISEL_OVERRIDE_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DP_PULLUP_HISEL_OVERRIDE_EN`"]
+#[doc = "Field `DP_PULLUP_HISEL_OVERRIDE_EN` reader - "]
+pub struct DP_PULLUP_HISEL_OVERRIDE_EN_R(crate::FieldReader<bool, bool>);
+impl DP_PULLUP_HISEL_OVERRIDE_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DP_PULLUP_HISEL_OVERRIDE_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DP_PULLUP_HISEL_OVERRIDE_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DP_PULLUP_HISEL_OVERRIDE_EN` writer - "]
 pub struct DP_PULLUP_HISEL_OVERRIDE_EN_W<'a> {
     w: &'a mut W,
 }
@@ -488,5 +678,30 @@ impl W {
     #[inline(always)]
     pub fn dp_pullup_hisel_override_en(&mut self) -> DP_PULLUP_HISEL_OVERRIDE_EN_W {
         DP_PULLUP_HISEL_OVERRIDE_EN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Override enable for each control in usbphy_direct\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [usbphy_direct_override](index.html) module"]
+pub struct USBPHY_DIRECT_OVERRIDE_SPEC;
+impl crate::RegisterSpec for USBPHY_DIRECT_OVERRIDE_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [usbphy_direct_override::R](R) reader structure"]
+impl crate::Readable for USBPHY_DIRECT_OVERRIDE_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [usbphy_direct_override::W](W) writer structure"]
+impl crate::Writable for USBPHY_DIRECT_OVERRIDE_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets USBPHY_DIRECT_OVERRIDE to value 0"]
+impl crate::Resettable for USBPHY_DIRECT_OVERRIDE_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

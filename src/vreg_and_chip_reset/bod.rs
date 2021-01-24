@@ -1,18 +1,52 @@
-#[doc = "Reader of register BOD"]
-pub type R = crate::R<u32, super::BOD>;
-#[doc = "Writer for register BOD"]
-pub type W = crate::W<u32, super::BOD>;
-#[doc = "Register BOD `reset()`'s with value 0x91"]
-impl crate::ResetValue for super::BOD {
-    type Type = u32;
+#[doc = "Register `BOD` reader"]
+pub struct R(crate::R<BOD_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<BOD_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x91
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `VSEL`"]
-pub type VSEL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `VSEL`"]
+impl core::convert::From<crate::R<BOD_SPEC>> for R {
+    fn from(reader: crate::R<BOD_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `BOD` writer"]
+pub struct W(crate::W<BOD_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<BOD_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<BOD_SPEC>> for W {
+    fn from(writer: crate::W<BOD_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `VSEL` reader - threshold select\\n 0000 - 0.473V\\n 0001 - 0.516V\\n 0010 - 0.559V\\n 0011 - 0.602V\\n 0100 - 0.645V\\n 0101 - 0.688V\\n 0110 - 0.731V\\n 0111 - 0.774V\\n 1000 - 0.817V\\n 1001 - 0.860V (default)\\n 1010 - 0.903V\\n 1011 - 0.946V\\n 1100 - 0.989V\\n 1101 - 1.032V\\n 1110 - 1.075V\\n 1111 - 1.118V"]
+pub struct VSEL_R(crate::FieldReader<u8, u8>);
+impl VSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        VSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VSEL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `VSEL` writer - threshold select\\n 0000 - 0.473V\\n 0001 - 0.516V\\n 0010 - 0.559V\\n 0011 - 0.602V\\n 0100 - 0.645V\\n 0101 - 0.688V\\n 0110 - 0.731V\\n 0111 - 0.774V\\n 1000 - 0.817V\\n 1001 - 0.860V (default)\\n 1010 - 0.903V\\n 1011 - 0.946V\\n 1100 - 0.989V\\n 1101 - 1.032V\\n 1110 - 1.075V\\n 1111 - 1.118V"]
 pub struct VSEL_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> VSEL_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `EN`"]
-pub type EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EN`"]
+#[doc = "Field `EN` reader - enable\\n 0=not enabled, 1=enabled"]
+pub struct EN_R(crate::FieldReader<bool, bool>);
+impl EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EN` writer - enable\\n 0=not enabled, 1=enabled"]
 pub struct EN_W<'a> {
     w: &'a mut W,
 }
@@ -70,5 +116,30 @@ impl W {
     #[inline(always)]
     pub fn en(&mut self) -> EN_W {
         EN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "brown-out detection control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bod](index.html) module"]
+pub struct BOD_SPEC;
+impl crate::RegisterSpec for BOD_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [bod::R](R) reader structure"]
+impl crate::Readable for BOD_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [bod::W](W) writer structure"]
+impl crate::Writable for BOD_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets BOD to value 0x91"]
+impl crate::Resettable for BOD_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x91
     }
 }

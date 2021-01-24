@@ -1,14 +1,62 @@
-#[doc = "Reader of register SCRATCH1"]
-pub type R = crate::R<u32, super::SCRATCH1>;
-#[doc = "Writer for register SCRATCH1"]
-pub type W = crate::W<u32, super::SCRATCH1>;
-#[doc = "Register SCRATCH1 `reset()`'s with value 0"]
-impl crate::ResetValue for super::SCRATCH1 {
-    type Type = u32;
+#[doc = "Register `SCRATCH1` reader"]
+pub struct R(crate::R<SCRATCH1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SCRATCH1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<SCRATCH1_SPEC>> for R {
+    fn from(reader: crate::R<SCRATCH1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SCRATCH1` writer"]
+pub struct W(crate::W<SCRATCH1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SCRATCH1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<SCRATCH1_SPEC>> for W {
+    fn from(writer: crate::W<SCRATCH1_SPEC>) -> Self {
+        W(writer)
     }
 }
 impl R {}
-impl W {}
+impl W {
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Scratch register. Information persists through soft reset of the chip.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [scratch1](index.html) module"]
+pub struct SCRATCH1_SPEC;
+impl crate::RegisterSpec for SCRATCH1_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [scratch1::R](R) reader structure"]
+impl crate::Readable for SCRATCH1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [scratch1::W](W) writer structure"]
+impl crate::Writable for SCRATCH1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SCRATCH1 to value 0"]
+impl crate::Resettable for SCRATCH1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
+    }
+}

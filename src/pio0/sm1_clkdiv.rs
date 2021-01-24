@@ -1,18 +1,52 @@
-#[doc = "Reader of register SM1_CLKDIV"]
-pub type R = crate::R<u32, super::SM1_CLKDIV>;
-#[doc = "Writer for register SM1_CLKDIV"]
-pub type W = crate::W<u32, super::SM1_CLKDIV>;
-#[doc = "Register SM1_CLKDIV `reset()`'s with value 0x0001_0000"]
-impl crate::ResetValue for super::SM1_CLKDIV {
-    type Type = u32;
+#[doc = "Register `SM1_CLKDIV` reader"]
+pub struct R(crate::R<SM1_CLKDIV_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SM1_CLKDIV_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0001_0000
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `INT`"]
-pub type INT_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `INT`"]
+impl core::convert::From<crate::R<SM1_CLKDIV_SPEC>> for R {
+    fn from(reader: crate::R<SM1_CLKDIV_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SM1_CLKDIV` writer"]
+pub struct W(crate::W<SM1_CLKDIV_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SM1_CLKDIV_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<SM1_CLKDIV_SPEC>> for W {
+    fn from(writer: crate::W<SM1_CLKDIV_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `INT` reader - Effective frequency is sysclk/int.\\n Value of 0 is interpreted as max possible value"]
+pub struct INT_R(crate::FieldReader<u16, u16>);
+impl INT_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INT_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INT` writer - Effective frequency is sysclk/int.\\n Value of 0 is interpreted as max possible value"]
 pub struct INT_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> INT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `FRAC`"]
-pub type FRAC_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `FRAC`"]
+#[doc = "Field `FRAC` reader - Fractional part of clock divider"]
+pub struct FRAC_R(crate::FieldReader<u8, u8>);
+impl FRAC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FRAC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FRAC_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FRAC` writer - Fractional part of clock divider"]
 pub struct FRAC_W<'a> {
     w: &'a mut W,
 }
@@ -60,5 +106,30 @@ impl W {
     #[inline(always)]
     pub fn frac(&mut self) -> FRAC_W {
         FRAC_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Clock divider register for state machine 1\\n Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sm1_clkdiv](index.html) module"]
+pub struct SM1_CLKDIV_SPEC;
+impl crate::RegisterSpec for SM1_CLKDIV_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [sm1_clkdiv::R](R) reader structure"]
+impl crate::Readable for SM1_CLKDIV_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [sm1_clkdiv::W](W) writer structure"]
+impl crate::Writable for SM1_CLKDIV_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SM1_CLKDIV to value 0x0001_0000"]
+impl crate::Resettable for SM1_CLKDIV_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0001_0000
     }
 }

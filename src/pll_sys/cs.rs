@@ -1,20 +1,66 @@
-#[doc = "Reader of register CS"]
-pub type R = crate::R<u32, super::CS>;
-#[doc = "Writer for register CS"]
-pub type W = crate::W<u32, super::CS>;
-#[doc = "Register CS `reset()`'s with value 0x01"]
-impl crate::ResetValue for super::CS {
-    type Type = u32;
+#[doc = "Register `CS` reader"]
+pub struct R(crate::R<CS_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CS_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x01
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `LOCK`"]
-pub type LOCK_R = crate::R<bool, bool>;
-#[doc = "Reader of field `BYPASS`"]
-pub type BYPASS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `BYPASS`"]
+impl core::convert::From<crate::R<CS_SPEC>> for R {
+    fn from(reader: crate::R<CS_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CS` writer"]
+pub struct W(crate::W<CS_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CS_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CS_SPEC>> for W {
+    fn from(writer: crate::W<CS_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `LOCK` reader - PLL is locked"]
+pub struct LOCK_R(crate::FieldReader<bool, bool>);
+impl LOCK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LOCK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LOCK_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BYPASS` reader - Passes the reference clock to the output instead of the divided VCO. The VCO continues to run so the user can switch between the reference clock and the divided VCO but the output will glitch when doing so."]
+pub struct BYPASS_R(crate::FieldReader<bool, bool>);
+impl BYPASS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BYPASS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BYPASS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BYPASS` writer - Passes the reference clock to the output instead of the divided VCO. The VCO continues to run so the user can switch between the reference clock and the divided VCO but the output will glitch when doing so."]
 pub struct BYPASS_W<'a> {
     w: &'a mut W,
 }
@@ -36,9 +82,21 @@ impl<'a> BYPASS_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `REFDIV`"]
-pub type REFDIV_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `REFDIV`"]
+#[doc = "Field `REFDIV` reader - Divides the PLL input reference clock.\\n Behaviour is undefined for div=0.\\n PLL output will be unpredictable during refdiv changes, wait for lock=1 before using it."]
+pub struct REFDIV_R(crate::FieldReader<u8, u8>);
+impl REFDIV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        REFDIV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for REFDIV_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `REFDIV` writer - Divides the PLL input reference clock.\\n Behaviour is undefined for div=0.\\n PLL output will be unpredictable during refdiv changes, wait for lock=1 before using it."]
 pub struct REFDIV_W<'a> {
     w: &'a mut W,
 }
@@ -77,5 +135,30 @@ impl W {
     #[inline(always)]
     pub fn refdiv(&mut self) -> REFDIV_W {
         REFDIV_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Control and Status\\n GENERAL CONSTRAINTS:\\n Reference clock frequency min=5MHz, max=800MHz\\n Feedback divider min=16, max=320\\n VCO frequency min=400MHz, max=1600MHz\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cs](index.html) module"]
+pub struct CS_SPEC;
+impl crate::RegisterSpec for CS_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [cs::R](R) reader structure"]
+impl crate::Readable for CS_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [cs::W](W) writer structure"]
+impl crate::Writable for CS_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CS to value 0x01"]
+impl crate::Resettable for CS_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x01
     }
 }

@@ -1,18 +1,52 @@
-#[doc = "Reader of register CH3_CSR"]
-pub type R = crate::R<u32, super::CH3_CSR>;
-#[doc = "Writer for register CH3_CSR"]
-pub type W = crate::W<u32, super::CH3_CSR>;
-#[doc = "Register CH3_CSR `reset()`'s with value 0"]
-impl crate::ResetValue for super::CH3_CSR {
-    type Type = u32;
+#[doc = "Register `CH3_CSR` reader"]
+pub struct R(crate::R<CH3_CSR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CH3_CSR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PH_ADV`"]
-pub type PH_ADV_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PH_ADV`"]
+impl core::convert::From<crate::R<CH3_CSR_SPEC>> for R {
+    fn from(reader: crate::R<CH3_CSR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CH3_CSR` writer"]
+pub struct W(crate::W<CH3_CSR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CH3_CSR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CH3_CSR_SPEC>> for W {
+    fn from(writer: crate::W<CH3_CSR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PH_ADV` reader - Advance the phase of the counter by 1 count, while it is running.\\n Self-clearing. Write a 1, and poll until low. Counter must be running\\n at less than full speed (div_int + div_frac / 16 > 1)"]
+pub struct PH_ADV_R(crate::FieldReader<bool, bool>);
+impl PH_ADV_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PH_ADV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PH_ADV_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PH_ADV` writer - Advance the phase of the counter by 1 count, while it is running.\\n Self-clearing. Write a 1, and poll until low. Counter must be running\\n at less than full speed (div_int + div_frac / 16 > 1)"]
 pub struct PH_ADV_W<'a> {
     w: &'a mut W,
 }
@@ -34,9 +68,21 @@ impl<'a> PH_ADV_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PH_RET`"]
-pub type PH_RET_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PH_RET`"]
+#[doc = "Field `PH_RET` reader - Retard the phase of the counter by 1 count, while it is running.\\n Self-clearing. Write a 1, and poll until low. Counter must be running."]
+pub struct PH_RET_R(crate::FieldReader<bool, bool>);
+impl PH_RET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PH_RET_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PH_RET_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PH_RET` writer - Retard the phase of the counter by 1 count, while it is running.\\n Self-clearing. Write a 1, and poll until low. Counter must be running."]
 pub struct PH_RET_W<'a> {
     w: &'a mut W,
 }
@@ -77,9 +123,12 @@ impl From<DIVMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DIVMODE`"]
-pub type DIVMODE_R = crate::R<u8, DIVMODE_A>;
+#[doc = "Field `DIVMODE` reader - "]
+pub struct DIVMODE_R(crate::FieldReader<u8, DIVMODE_A>);
 impl DIVMODE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DIVMODE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DIVMODE_A {
@@ -94,25 +143,32 @@ impl DIVMODE_R {
     #[doc = "Checks if the value of the field is `DIV`"]
     #[inline(always)]
     pub fn is_div(&self) -> bool {
-        *self == DIVMODE_A::DIV
+        **self == DIVMODE_A::DIV
     }
     #[doc = "Checks if the value of the field is `LEVEL`"]
     #[inline(always)]
     pub fn is_level(&self) -> bool {
-        *self == DIVMODE_A::LEVEL
+        **self == DIVMODE_A::LEVEL
     }
     #[doc = "Checks if the value of the field is `RISE`"]
     #[inline(always)]
     pub fn is_rise(&self) -> bool {
-        *self == DIVMODE_A::RISE
+        **self == DIVMODE_A::RISE
     }
     #[doc = "Checks if the value of the field is `FALL`"]
     #[inline(always)]
     pub fn is_fall(&self) -> bool {
-        *self == DIVMODE_A::FALL
+        **self == DIVMODE_A::FALL
     }
 }
-#[doc = "Write proxy for field `DIVMODE`"]
+impl core::ops::Deref for DIVMODE_R {
+    type Target = crate::FieldReader<u8, DIVMODE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIVMODE` writer - "]
 pub struct DIVMODE_W<'a> {
     w: &'a mut W,
 }
@@ -120,9 +176,7 @@ impl<'a> DIVMODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DIVMODE_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Free-running counting at rate dictated by fractional divider"]
     #[inline(always)]
@@ -151,9 +205,21 @@ impl<'a> DIVMODE_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `B_INV`"]
-pub type B_INV_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `B_INV`"]
+#[doc = "Field `B_INV` reader - Invert output B"]
+pub struct B_INV_R(crate::FieldReader<bool, bool>);
+impl B_INV_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        B_INV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for B_INV_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `B_INV` writer - Invert output B"]
 pub struct B_INV_W<'a> {
     w: &'a mut W,
 }
@@ -175,9 +241,21 @@ impl<'a> B_INV_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `A_INV`"]
-pub type A_INV_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `A_INV`"]
+#[doc = "Field `A_INV` reader - Invert output A"]
+pub struct A_INV_R(crate::FieldReader<bool, bool>);
+impl A_INV_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        A_INV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for A_INV_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `A_INV` writer - Invert output A"]
 pub struct A_INV_W<'a> {
     w: &'a mut W,
 }
@@ -199,9 +277,21 @@ impl<'a> A_INV_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `PH_CORRECT`"]
-pub type PH_CORRECT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PH_CORRECT`"]
+#[doc = "Field `PH_CORRECT` reader - 1: Enable phase-correct modulation. 0: Trailing-edge"]
+pub struct PH_CORRECT_R(crate::FieldReader<bool, bool>);
+impl PH_CORRECT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PH_CORRECT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PH_CORRECT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PH_CORRECT` writer - 1: Enable phase-correct modulation. 0: Trailing-edge"]
 pub struct PH_CORRECT_W<'a> {
     w: &'a mut W,
 }
@@ -223,9 +313,21 @@ impl<'a> PH_CORRECT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `EN`"]
-pub type EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EN`"]
+#[doc = "Field `EN` reader - Enable the PWM channel."]
+pub struct EN_R(crate::FieldReader<bool, bool>);
+impl EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EN` writer - Enable the PWM channel."]
 pub struct EN_W<'a> {
     w: &'a mut W,
 }
@@ -319,5 +421,30 @@ impl W {
     #[inline(always)]
     pub fn en(&mut self) -> EN_W {
         EN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Control and status register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ch3_csr](index.html) module"]
+pub struct CH3_CSR_SPEC;
+impl crate::RegisterSpec for CH3_CSR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ch3_csr::R](R) reader structure"]
+impl crate::Readable for CH3_CSR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ch3_csr::W](W) writer structure"]
+impl crate::Writable for CH3_CSR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CH3_CSR to value 0"]
+impl crate::Resettable for CH3_CSR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

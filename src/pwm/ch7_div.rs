@@ -1,18 +1,52 @@
-#[doc = "Reader of register CH7_DIV"]
-pub type R = crate::R<u32, super::CH7_DIV>;
-#[doc = "Writer for register CH7_DIV"]
-pub type W = crate::W<u32, super::CH7_DIV>;
-#[doc = "Register CH7_DIV `reset()`'s with value 0x10"]
-impl crate::ResetValue for super::CH7_DIV {
-    type Type = u32;
+#[doc = "Register `CH7_DIV` reader"]
+pub struct R(crate::R<CH7_DIV_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CH7_DIV_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x10
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `INT`"]
-pub type INT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `INT`"]
+impl core::convert::From<crate::R<CH7_DIV_SPEC>> for R {
+    fn from(reader: crate::R<CH7_DIV_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CH7_DIV` writer"]
+pub struct W(crate::W<CH7_DIV_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CH7_DIV_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CH7_DIV_SPEC>> for W {
+    fn from(writer: crate::W<CH7_DIV_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `INT` reader - "]
+pub struct INT_R(crate::FieldReader<u8, u8>);
+impl INT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INT` writer - "]
 pub struct INT_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> INT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `FRAC`"]
-pub type FRAC_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `FRAC`"]
+#[doc = "Field `FRAC` reader - "]
+pub struct FRAC_R(crate::FieldReader<u8, u8>);
+impl FRAC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FRAC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FRAC_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FRAC` writer - "]
 pub struct FRAC_W<'a> {
     w: &'a mut W,
 }
@@ -60,5 +106,30 @@ impl W {
     #[inline(always)]
     pub fn frac(&mut self) -> FRAC_W {
         FRAC_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "INT and FRAC form a fixed-point fractional number.\\n Counting rate is system clock frequency divided by this number.\\n Fractional division uses simple 1st-order sigma-delta.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ch7_div](index.html) module"]
+pub struct CH7_DIV_SPEC;
+impl crate::RegisterSpec for CH7_DIV_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ch7_div::R](R) reader structure"]
+impl crate::Readable for CH7_DIV_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ch7_div::W](W) writer structure"]
+impl crate::Writable for CH7_DIV_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CH7_DIV to value 0x10"]
+impl crate::Resettable for CH7_DIV_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x10
     }
 }

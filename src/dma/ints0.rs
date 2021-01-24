@@ -1,18 +1,52 @@
-#[doc = "Reader of register INTS0"]
-pub type R = crate::R<u32, super::INTS0>;
-#[doc = "Writer for register INTS0"]
-pub type W = crate::W<u32, super::INTS0>;
-#[doc = "Register INTS0 `reset()`'s with value 0"]
-impl crate::ResetValue for super::INTS0 {
-    type Type = u32;
+#[doc = "Register `INTS0` reader"]
+pub struct R(crate::R<INTS0_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INTS0_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `INTS0`"]
-pub type INTS0_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `INTS0`"]
+impl core::convert::From<crate::R<INTS0_SPEC>> for R {
+    fn from(reader: crate::R<INTS0_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `INTS0` writer"]
+pub struct W(crate::W<INTS0_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<INTS0_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<INTS0_SPEC>> for W {
+    fn from(writer: crate::W<INTS0_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `INTS0` reader - Indicates active channel interrupt requests which are currently causing IRQ 0 to be asserted.\\n Channel interrupts can be cleared by writing a bit mask here."]
+pub struct INTS0_R(crate::FieldReader<u16, u16>);
+impl INTS0_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        INTS0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INTS0_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INTS0` writer - Indicates active channel interrupt requests which are currently causing IRQ 0 to be asserted.\\n Channel interrupts can be cleared by writing a bit mask here."]
 pub struct INTS0_W<'a> {
     w: &'a mut W,
 }
@@ -36,5 +70,30 @@ impl W {
     #[inline(always)]
     pub fn ints0(&mut self) -> INTS0_W {
         INTS0_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Interrupt Status for IRQ 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ints0](index.html) module"]
+pub struct INTS0_SPEC;
+impl crate::RegisterSpec for INTS0_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ints0::R](R) reader structure"]
+impl crate::Readable for INTS0_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ints0::W](W) writer structure"]
+impl crate::Writable for INTS0_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets INTS0 to value 0"]
+impl crate::Resettable for INTS0_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

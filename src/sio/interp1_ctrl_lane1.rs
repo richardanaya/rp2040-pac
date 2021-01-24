@@ -1,18 +1,52 @@
-#[doc = "Reader of register INTERP1_CTRL_LANE1"]
-pub type R = crate::R<u32, super::INTERP1_CTRL_LANE1>;
-#[doc = "Writer for register INTERP1_CTRL_LANE1"]
-pub type W = crate::W<u32, super::INTERP1_CTRL_LANE1>;
-#[doc = "Register INTERP1_CTRL_LANE1 `reset()`'s with value 0"]
-impl crate::ResetValue for super::INTERP1_CTRL_LANE1 {
-    type Type = u32;
+#[doc = "Register `INTERP1_CTRL_LANE1` reader"]
+pub struct R(crate::R<INTERP1_CTRL_LANE1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INTERP1_CTRL_LANE1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `FORCE_MSB`"]
-pub type FORCE_MSB_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `FORCE_MSB`"]
+impl core::convert::From<crate::R<INTERP1_CTRL_LANE1_SPEC>> for R {
+    fn from(reader: crate::R<INTERP1_CTRL_LANE1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `INTERP1_CTRL_LANE1` writer"]
+pub struct W(crate::W<INTERP1_CTRL_LANE1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<INTERP1_CTRL_LANE1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<INTERP1_CTRL_LANE1_SPEC>> for W {
+    fn from(writer: crate::W<INTERP1_CTRL_LANE1_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `FORCE_MSB` reader - ORed into bits 29:28 of the lane result presented to the processor on the bus.\\n No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\\n of pointers into flash or SRAM."]
+pub struct FORCE_MSB_R(crate::FieldReader<u8, u8>);
+impl FORCE_MSB_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FORCE_MSB_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FORCE_MSB_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FORCE_MSB` writer - ORed into bits 29:28 of the lane result presented to the processor on the bus.\\n No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\\n of pointers into flash or SRAM."]
 pub struct FORCE_MSB_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> FORCE_MSB_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `ADD_RAW`"]
-pub type ADD_RAW_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ADD_RAW`"]
+#[doc = "Field `ADD_RAW` reader - If 1, mask + shift is bypassed for LANE1 result. This does not affect FULL result."]
+pub struct ADD_RAW_R(crate::FieldReader<bool, bool>);
+impl ADD_RAW_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ADD_RAW_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ADD_RAW_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADD_RAW` writer - If 1, mask + shift is bypassed for LANE1 result. This does not affect FULL result."]
 pub struct ADD_RAW_W<'a> {
     w: &'a mut W,
 }
@@ -48,9 +94,21 @@ impl<'a> ADD_RAW_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `CROSS_RESULT`"]
-pub type CROSS_RESULT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CROSS_RESULT`"]
+#[doc = "Field `CROSS_RESULT` reader - If 1, feed the opposite lane's result into this lane's accumulator on POP."]
+pub struct CROSS_RESULT_R(crate::FieldReader<bool, bool>);
+impl CROSS_RESULT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CROSS_RESULT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CROSS_RESULT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CROSS_RESULT` writer - If 1, feed the opposite lane's result into this lane's accumulator on POP."]
 pub struct CROSS_RESULT_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +130,21 @@ impl<'a> CROSS_RESULT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `CROSS_INPUT`"]
-pub type CROSS_INPUT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CROSS_INPUT`"]
+#[doc = "Field `CROSS_INPUT` reader - If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\\n Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)"]
+pub struct CROSS_INPUT_R(crate::FieldReader<bool, bool>);
+impl CROSS_INPUT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CROSS_INPUT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CROSS_INPUT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CROSS_INPUT` writer - If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\\n Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)"]
 pub struct CROSS_INPUT_W<'a> {
     w: &'a mut W,
 }
@@ -96,9 +166,21 @@ impl<'a> CROSS_INPUT_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SIGNED`"]
-pub type SIGNED_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SIGNED`"]
+#[doc = "Field `SIGNED` reader - If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\\n before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor."]
+pub struct SIGNED_R(crate::FieldReader<bool, bool>);
+impl SIGNED_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SIGNED_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SIGNED_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SIGNED` writer - If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\\n before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor."]
 pub struct SIGNED_W<'a> {
     w: &'a mut W,
 }
@@ -120,9 +202,21 @@ impl<'a> SIGNED_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `MASK_MSB`"]
-pub type MASK_MSB_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `MASK_MSB`"]
+#[doc = "Field `MASK_MSB` reader - The most-significant bit allowed to pass by the mask (inclusive)\\n Setting MSB < LSB may cause chip to turn inside-out"]
+pub struct MASK_MSB_R(crate::FieldReader<u8, u8>);
+impl MASK_MSB_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MASK_MSB_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MASK_MSB_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MASK_MSB` writer - The most-significant bit allowed to pass by the mask (inclusive)\\n Setting MSB < LSB may cause chip to turn inside-out"]
 pub struct MASK_MSB_W<'a> {
     w: &'a mut W,
 }
@@ -134,9 +228,21 @@ impl<'a> MASK_MSB_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `MASK_LSB`"]
-pub type MASK_LSB_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `MASK_LSB`"]
+#[doc = "Field `MASK_LSB` reader - The least-significant bit allowed to pass by the mask (inclusive)"]
+pub struct MASK_LSB_R(crate::FieldReader<u8, u8>);
+impl MASK_LSB_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MASK_LSB_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MASK_LSB_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MASK_LSB` writer - The least-significant bit allowed to pass by the mask (inclusive)"]
 pub struct MASK_LSB_W<'a> {
     w: &'a mut W,
 }
@@ -148,9 +254,21 @@ impl<'a> MASK_LSB_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `SHIFT`"]
-pub type SHIFT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `SHIFT`"]
+#[doc = "Field `SHIFT` reader - Logical right-shift applied to accumulator before masking"]
+pub struct SHIFT_R(crate::FieldReader<u8, u8>);
+impl SHIFT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SHIFT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SHIFT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SHIFT` writer - Logical right-shift applied to accumulator before masking"]
 pub struct SHIFT_W<'a> {
     w: &'a mut W,
 }
@@ -244,5 +362,30 @@ impl W {
     #[inline(always)]
     pub fn shift(&mut self) -> SHIFT_W {
         SHIFT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Control register for lane 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [interp1_ctrl_lane1](index.html) module"]
+pub struct INTERP1_CTRL_LANE1_SPEC;
+impl crate::RegisterSpec for INTERP1_CTRL_LANE1_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [interp1_ctrl_lane1::R](R) reader structure"]
+impl crate::Readable for INTERP1_CTRL_LANE1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [interp1_ctrl_lane1::W](W) writer structure"]
+impl crate::Writable for INTERP1_CTRL_LANE1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets INTERP1_CTRL_LANE1 to value 0"]
+impl crate::Resettable for INTERP1_CTRL_LANE1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,18 +1,52 @@
-#[doc = "Reader of register MPU_RBAR"]
-pub type R = crate::R<u32, super::MPU_RBAR>;
-#[doc = "Writer for register MPU_RBAR"]
-pub type W = crate::W<u32, super::MPU_RBAR>;
-#[doc = "Register MPU_RBAR `reset()`'s with value 0"]
-impl crate::ResetValue for super::MPU_RBAR {
-    type Type = u32;
+#[doc = "Register `MPU_RBAR` reader"]
+pub struct R(crate::R<MPU_RBAR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MPU_RBAR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `ADDR`"]
-pub type ADDR_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `ADDR`"]
+impl core::convert::From<crate::R<MPU_RBAR_SPEC>> for R {
+    fn from(reader: crate::R<MPU_RBAR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MPU_RBAR` writer"]
+pub struct W(crate::W<MPU_RBAR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MPU_RBAR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MPU_RBAR_SPEC>> for W {
+    fn from(writer: crate::W<MPU_RBAR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `ADDR` reader - Base address of the region."]
+pub struct ADDR_R(crate::FieldReader<u32, u32>);
+impl ADDR_R {
+    pub(crate) fn new(bits: u32) -> Self {
+        ADDR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ADDR_R {
+    type Target = crate::FieldReader<u32, u32>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADDR` writer - Base address of the region."]
 pub struct ADDR_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> ADDR_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `VALID`"]
-pub type VALID_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `VALID`"]
+#[doc = "Field `VALID` reader - On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\\n Write:\\n 0 = MPU_RNR not changed, and the processor:\\n Updates the base address for the region specified in the MPU_RNR.\\n Ignores the value of the REGION field.\\n 1 = The processor:\\n Updates the value of the MPU_RNR to the value of the REGION field.\\n Updates the base address for the region specified in the REGION field.\\n Always reads as zero."]
+pub struct VALID_R(crate::FieldReader<bool, bool>);
+impl VALID_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        VALID_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VALID_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `VALID` writer - On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\\n Write:\\n 0 = MPU_RNR not changed, and the processor:\\n Updates the base address for the region specified in the MPU_RNR.\\n Ignores the value of the REGION field.\\n 1 = The processor:\\n Updates the value of the MPU_RNR to the value of the REGION field.\\n Updates the base address for the region specified in the REGION field.\\n Always reads as zero."]
 pub struct VALID_W<'a> {
     w: &'a mut W,
 }
@@ -48,9 +94,23 @@ impl<'a> VALID_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `REGION`"]
-pub type REGION_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `REGION`"]
+#[doc = "Field `REGION` reader - On writes, specifies the number of the region whose base address to update provided VALID is set written as 1. On reads, returns bits \\[3:0\\]
+of MPU_RNR."]
+pub struct REGION_R(crate::FieldReader<u8, u8>);
+impl REGION_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        REGION_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for REGION_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `REGION` writer - On writes, specifies the number of the region whose base address to update provided VALID is set written as 1. On reads, returns bits \\[3:0\\]
+of MPU_RNR."]
 pub struct REGION_W<'a> {
     w: &'a mut W,
 }
@@ -96,5 +156,30 @@ of MPU_RNR."]
     #[inline(always)]
     pub fn region(&mut self) -> REGION_W {
         REGION_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Read the MPU Region Base Address Register to determine the base address of the region identified by MPU_RNR. Write to update the base address of said region or that of a specified region, with whose number MPU_RNR will also be updated.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mpu_rbar](index.html) module"]
+pub struct MPU_RBAR_SPEC;
+impl crate::RegisterSpec for MPU_RBAR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mpu_rbar::R](R) reader structure"]
+impl crate::Readable for MPU_RBAR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mpu_rbar::W](W) writer structure"]
+impl crate::Writable for MPU_RBAR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MPU_RBAR to value 0"]
+impl crate::Resettable for MPU_RBAR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

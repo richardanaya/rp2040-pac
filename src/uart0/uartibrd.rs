@@ -1,18 +1,52 @@
-#[doc = "Reader of register UARTIBRD"]
-pub type R = crate::R<u32, super::UARTIBRD>;
-#[doc = "Writer for register UARTIBRD"]
-pub type W = crate::W<u32, super::UARTIBRD>;
-#[doc = "Register UARTIBRD `reset()`'s with value 0"]
-impl crate::ResetValue for super::UARTIBRD {
-    type Type = u32;
+#[doc = "Register `UARTIBRD` reader"]
+pub struct R(crate::R<UARTIBRD_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<UARTIBRD_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `BAUD_DIVINT`"]
-pub type BAUD_DIVINT_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `BAUD_DIVINT`"]
+impl core::convert::From<crate::R<UARTIBRD_SPEC>> for R {
+    fn from(reader: crate::R<UARTIBRD_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `UARTIBRD` writer"]
+pub struct W(crate::W<UARTIBRD_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<UARTIBRD_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<UARTIBRD_SPEC>> for W {
+    fn from(writer: crate::W<UARTIBRD_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `BAUD_DIVINT` reader - The integer baud rate divisor. These bits are cleared to 0 on reset."]
+pub struct BAUD_DIVINT_R(crate::FieldReader<u16, u16>);
+impl BAUD_DIVINT_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        BAUD_DIVINT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BAUD_DIVINT_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BAUD_DIVINT` writer - The integer baud rate divisor. These bits are cleared to 0 on reset."]
 pub struct BAUD_DIVINT_W<'a> {
     w: &'a mut W,
 }
@@ -36,5 +70,30 @@ impl W {
     #[inline(always)]
     pub fn baud_divint(&mut self) -> BAUD_DIVINT_W {
         BAUD_DIVINT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Integer Baud Rate Register, UARTIBRD\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [uartibrd](index.html) module"]
+pub struct UARTIBRD_SPEC;
+impl crate::RegisterSpec for UARTIBRD_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [uartibrd::R](R) reader structure"]
+impl crate::Readable for UARTIBRD_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [uartibrd::W](W) writer structure"]
+impl crate::Writable for UARTIBRD_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets UARTIBRD to value 0"]
+impl crate::Resettable for UARTIBRD_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

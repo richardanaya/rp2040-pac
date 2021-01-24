@@ -1,18 +1,52 @@
-#[doc = "Reader of register FDEBUG"]
-pub type R = crate::R<u32, super::FDEBUG>;
-#[doc = "Writer for register FDEBUG"]
-pub type W = crate::W<u32, super::FDEBUG>;
-#[doc = "Register FDEBUG `reset()`'s with value 0"]
-impl crate::ResetValue for super::FDEBUG {
-    type Type = u32;
+#[doc = "Register `FDEBUG` reader"]
+pub struct R(crate::R<FDEBUG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FDEBUG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `TXSTALL`"]
-pub type TXSTALL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TXSTALL`"]
+impl core::convert::From<crate::R<FDEBUG_SPEC>> for R {
+    fn from(reader: crate::R<FDEBUG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FDEBUG` writer"]
+pub struct W(crate::W<FDEBUG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FDEBUG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FDEBUG_SPEC>> for W {
+    fn from(writer: crate::W<FDEBUG_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `TXSTALL` reader - State machine has stalled on empty TX FIFO. Write 1 to clear."]
+pub struct TXSTALL_R(crate::FieldReader<u8, u8>);
+impl TXSTALL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TXSTALL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXSTALL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXSTALL` writer - State machine has stalled on empty TX FIFO. Write 1 to clear."]
 pub struct TXSTALL_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> TXSTALL_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `TXOVER`"]
-pub type TXOVER_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TXOVER`"]
+#[doc = "Field `TXOVER` reader - TX FIFO overflow has occurred. Write 1 to clear."]
+pub struct TXOVER_R(crate::FieldReader<u8, u8>);
+impl TXOVER_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TXOVER_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXOVER_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXOVER` writer - TX FIFO overflow has occurred. Write 1 to clear."]
 pub struct TXOVER_W<'a> {
     w: &'a mut W,
 }
@@ -38,9 +84,21 @@ impl<'a> TXOVER_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `RXUNDER`"]
-pub type RXUNDER_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `RXUNDER`"]
+#[doc = "Field `RXUNDER` reader - RX FIFO underflow has occurred. Write 1 to clear."]
+pub struct RXUNDER_R(crate::FieldReader<u8, u8>);
+impl RXUNDER_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        RXUNDER_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXUNDER_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXUNDER` writer - RX FIFO underflow has occurred. Write 1 to clear."]
 pub struct RXUNDER_W<'a> {
     w: &'a mut W,
 }
@@ -52,9 +110,21 @@ impl<'a> RXUNDER_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `RXSTALL`"]
-pub type RXSTALL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `RXSTALL`"]
+#[doc = "Field `RXSTALL` reader - State machine has stalled on full RX FIFO. Write 1 to clear."]
+pub struct RXSTALL_R(crate::FieldReader<u8, u8>);
+impl RXSTALL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        RXSTALL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXSTALL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXSTALL` writer - State machine has stalled on full RX FIFO. Write 1 to clear."]
 pub struct RXSTALL_W<'a> {
     w: &'a mut W,
 }
@@ -108,5 +178,30 @@ impl W {
     #[inline(always)]
     pub fn rxstall(&mut self) -> RXSTALL_W {
         RXSTALL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FIFO debug register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fdebug](index.html) module"]
+pub struct FDEBUG_SPEC;
+impl crate::RegisterSpec for FDEBUG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [fdebug::R](R) reader structure"]
+impl crate::Readable for FDEBUG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fdebug::W](W) writer structure"]
+impl crate::Writable for FDEBUG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FDEBUG to value 0"]
+impl crate::Resettable for FDEBUG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

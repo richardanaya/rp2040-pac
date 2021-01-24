@@ -1,18 +1,52 @@
-#[doc = "Reader of register CH2_CC"]
-pub type R = crate::R<u32, super::CH2_CC>;
-#[doc = "Writer for register CH2_CC"]
-pub type W = crate::W<u32, super::CH2_CC>;
-#[doc = "Register CH2_CC `reset()`'s with value 0"]
-impl crate::ResetValue for super::CH2_CC {
-    type Type = u32;
+#[doc = "Register `CH2_CC` reader"]
+pub struct R(crate::R<CH2_CC_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CH2_CC_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `B`"]
-pub type B_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `B`"]
+impl core::convert::From<crate::R<CH2_CC_SPEC>> for R {
+    fn from(reader: crate::R<CH2_CC_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CH2_CC` writer"]
+pub struct W(crate::W<CH2_CC_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CH2_CC_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CH2_CC_SPEC>> for W {
+    fn from(writer: crate::W<CH2_CC_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `B` reader - "]
+pub struct B_R(crate::FieldReader<u16, u16>);
+impl B_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        B_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for B_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `B` writer - "]
 pub struct B_W<'a> {
     w: &'a mut W,
 }
@@ -24,9 +58,21 @@ impl<'a> B_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `A`"]
-pub type A_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `A`"]
+#[doc = "Field `A` reader - "]
+pub struct A_R(crate::FieldReader<u16, u16>);
+impl A_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        A_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for A_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `A` writer - "]
 pub struct A_W<'a> {
     w: &'a mut W,
 }
@@ -60,5 +106,30 @@ impl W {
     #[inline(always)]
     pub fn a(&mut self) -> A_W {
         A_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Counter compare values\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ch2_cc](index.html) module"]
+pub struct CH2_CC_SPEC;
+impl crate::RegisterSpec for CH2_CC_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ch2_cc::R](R) reader structure"]
+impl crate::Readable for CH2_CC_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ch2_cc::W](W) writer structure"]
+impl crate::Writable for CH2_CC_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CH2_CC to value 0"]
+impl crate::Resettable for CH2_CC_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

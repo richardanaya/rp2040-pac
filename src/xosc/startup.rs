@@ -1,18 +1,52 @@
-#[doc = "Reader of register STARTUP"]
-pub type R = crate::R<u32, super::STARTUP>;
-#[doc = "Writer for register STARTUP"]
-pub type W = crate::W<u32, super::STARTUP>;
-#[doc = "Register STARTUP `reset()`'s with value 0"]
-impl crate::ResetValue for super::STARTUP {
-    type Type = u32;
+#[doc = "Register `STARTUP` reader"]
+pub struct R(crate::R<STARTUP_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<STARTUP_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `X4`"]
-pub type X4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `X4`"]
+impl core::convert::From<crate::R<STARTUP_SPEC>> for R {
+    fn from(reader: crate::R<STARTUP_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `STARTUP` writer"]
+pub struct W(crate::W<STARTUP_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<STARTUP_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<STARTUP_SPEC>> for W {
+    fn from(writer: crate::W<STARTUP_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `X4` reader - Multiplies the startup_delay by 4. This is of little value to the user given that the delay can be programmed directly"]
+pub struct X4_R(crate::FieldReader<bool, bool>);
+impl X4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        X4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for X4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `X4` writer - Multiplies the startup_delay by 4. This is of little value to the user given that the delay can be programmed directly"]
 pub struct X4_W<'a> {
     w: &'a mut W,
 }
@@ -34,9 +68,21 @@ impl<'a> X4_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `DELAY`"]
-pub type DELAY_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `DELAY`"]
+#[doc = "Field `DELAY` reader - in multiples of 256*xtal_period"]
+pub struct DELAY_R(crate::FieldReader<u16, u16>);
+impl DELAY_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        DELAY_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DELAY_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DELAY` writer - in multiples of 256*xtal_period"]
 pub struct DELAY_W<'a> {
     w: &'a mut W,
 }
@@ -70,5 +116,30 @@ impl W {
     #[inline(always)]
     pub fn delay(&mut self) -> DELAY_W {
         DELAY_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Controls the startup delay\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [startup](index.html) module"]
+pub struct STARTUP_SPEC;
+impl crate::RegisterSpec for STARTUP_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [startup::R](R) reader structure"]
+impl crate::Readable for STARTUP_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [startup::W](W) writer structure"]
+impl crate::Writable for STARTUP_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets STARTUP to value 0"]
+impl crate::Resettable for STARTUP_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

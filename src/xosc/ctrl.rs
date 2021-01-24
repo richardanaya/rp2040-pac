@@ -1,13 +1,35 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "On power-up this field is initialised to DISABLE and the chip runs from the ROSC.\\n If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.\\n The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator.\n\nValue on reset: 0"]
@@ -25,9 +47,12 @@ impl From<ENABLE_A> for u16 {
         variant as _
     }
 }
-#[doc = "Reader of field `ENABLE`"]
-pub type ENABLE_R = crate::R<u16, ENABLE_A>;
+#[doc = "Field `ENABLE` reader - On power-up this field is initialised to DISABLE and the chip runs from the ROSC.\\n If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.\\n The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator."]
+pub struct ENABLE_R(crate::FieldReader<u16, ENABLE_A>);
 impl ENABLE_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        ENABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> crate::Variant<u16, ENABLE_A> {
@@ -41,15 +66,22 @@ impl ENABLE_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ENABLE_A::DISABLE
+        **self == ENABLE_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ENABLE_A::ENABLE
+        **self == ENABLE_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `ENABLE`"]
+impl core::ops::Deref for ENABLE_R {
+    type Target = crate::FieldReader<u16, ENABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENABLE` writer - On power-up this field is initialised to DISABLE and the chip runs from the ROSC.\\n If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.\\n The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator."]
 pub struct ENABLE_W<'a> {
     w: &'a mut W,
 }
@@ -95,9 +127,12 @@ impl From<FREQ_RANGE_A> for u16 {
         variant as _
     }
 }
-#[doc = "Reader of field `FREQ_RANGE`"]
-pub type FREQ_RANGE_R = crate::R<u16, FREQ_RANGE_A>;
+#[doc = "Field `FREQ_RANGE` reader - Frequency range. This resets to 0xAA0 and cannot be changed."]
+pub struct FREQ_RANGE_R(crate::FieldReader<u16, FREQ_RANGE_A>);
 impl FREQ_RANGE_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        FREQ_RANGE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> crate::Variant<u16, FREQ_RANGE_A> {
@@ -113,25 +148,32 @@ impl FREQ_RANGE_R {
     #[doc = "Checks if the value of the field is `_1_15MHZ`"]
     #[inline(always)]
     pub fn is_1_15mhz(&self) -> bool {
-        *self == FREQ_RANGE_A::_1_15MHZ
+        **self == FREQ_RANGE_A::_1_15MHZ
     }
     #[doc = "Checks if the value of the field is `RESERVED_1`"]
     #[inline(always)]
     pub fn is_reserved_1(&self) -> bool {
-        *self == FREQ_RANGE_A::RESERVED_1
+        **self == FREQ_RANGE_A::RESERVED_1
     }
     #[doc = "Checks if the value of the field is `RESERVED_2`"]
     #[inline(always)]
     pub fn is_reserved_2(&self) -> bool {
-        *self == FREQ_RANGE_A::RESERVED_2
+        **self == FREQ_RANGE_A::RESERVED_2
     }
     #[doc = "Checks if the value of the field is `RESERVED_3`"]
     #[inline(always)]
     pub fn is_reserved_3(&self) -> bool {
-        *self == FREQ_RANGE_A::RESERVED_3
+        **self == FREQ_RANGE_A::RESERVED_3
     }
 }
-#[doc = "Write proxy for field `FREQ_RANGE`"]
+impl core::ops::Deref for FREQ_RANGE_R {
+    type Target = crate::FieldReader<u16, FREQ_RANGE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FREQ_RANGE` writer - Frequency range. This resets to 0xAA0 and cannot be changed."]
 pub struct FREQ_RANGE_W<'a> {
     w: &'a mut W,
 }
@@ -190,5 +232,30 @@ impl W {
     #[inline(always)]
     pub fn freq_range(&mut self) -> FREQ_RANGE_W {
         FREQ_RANGE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Crystal Oscillator Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,18 +1,52 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `FORCE_NOTLEAPYEAR`"]
-pub type FORCE_NOTLEAPYEAR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FORCE_NOTLEAPYEAR`"]
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `FORCE_NOTLEAPYEAR` reader - If set, leapyear is forced off.\\n Useful for years divisible by 100 but not by 400"]
+pub struct FORCE_NOTLEAPYEAR_R(crate::FieldReader<bool, bool>);
+impl FORCE_NOTLEAPYEAR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FORCE_NOTLEAPYEAR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FORCE_NOTLEAPYEAR_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FORCE_NOTLEAPYEAR` writer - If set, leapyear is forced off.\\n Useful for years divisible by 100 but not by 400"]
 pub struct FORCE_NOTLEAPYEAR_W<'a> {
     w: &'a mut W,
 }
@@ -34,9 +68,21 @@ impl<'a> FORCE_NOTLEAPYEAR_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `LOAD`"]
-pub type LOAD_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LOAD`"]
+#[doc = "Field `LOAD` reader - Load RTC"]
+pub struct LOAD_R(crate::FieldReader<bool, bool>);
+impl LOAD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LOAD_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LOAD_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LOAD` writer - Load RTC"]
 pub struct LOAD_W<'a> {
     w: &'a mut W,
 }
@@ -58,11 +104,35 @@ impl<'a> LOAD_W<'a> {
         self.w
     }
 }
-#[doc = "Reader of field `RTC_ACTIVE`"]
-pub type RTC_ACTIVE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RTC_ENABLE`"]
-pub type RTC_ENABLE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `RTC_ENABLE`"]
+#[doc = "Field `RTC_ACTIVE` reader - RTC enabled (running)"]
+pub struct RTC_ACTIVE_R(crate::FieldReader<bool, bool>);
+impl RTC_ACTIVE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RTC_ACTIVE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RTC_ACTIVE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RTC_ENABLE` reader - Enable RTC"]
+pub struct RTC_ENABLE_R(crate::FieldReader<bool, bool>);
+impl RTC_ENABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RTC_ENABLE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RTC_ENABLE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RTC_ENABLE` writer - Enable RTC"]
 pub struct RTC_ENABLE_W<'a> {
     w: &'a mut W,
 }
@@ -121,5 +191,30 @@ impl W {
     #[inline(always)]
     pub fn rtc_enable(&mut self) -> RTC_ENABLE_W {
         RTC_ENABLE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "RTC Control and status\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }
